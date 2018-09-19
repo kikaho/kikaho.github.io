@@ -15,14 +15,18 @@
 }
 
 .general-button {
+    background-color: white;
     height: 3rem;
     width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
     transition-timing-function: ease-in;
     -webkit-transition: width 0.2s, height 0.2s; /* For Safari 3.1 to 6.0 */
     transition: width 0.2s, height 0.2s;
 }
 
 .general-button:hover {
-    width: 60%;
+    width: 80%;
 
 }
