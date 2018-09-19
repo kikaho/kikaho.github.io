@@ -76,7 +76,7 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED - 0.8");
+  $('#debug3').html("JS LOADED - 0.9");
 
   $('#play-button').click(function() {
     console.log(snd1);
