@@ -54,6 +54,9 @@ $(document).ready(function() {
     $('#debug').html("src1 = " + audio1Ready + " | src2 = " /* + audio2Ready */ + " | both = " + bothReady);
   }
 
+
+  $('#debug3').html("JS LOADED");
+
   $('#play-button').click(function() {
     //console.log(snd1);
 
