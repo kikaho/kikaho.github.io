@@ -10,6 +10,7 @@ $(document).ready(function() {
   // snd1.type = 'audio/mpeg';
   snd1.src = './src/audio/karanokokoro-g.mp3';
   // snd1.preload = 'auto';
+  snd1.id = "audio1";
   snd1.controls = true;
   snd1.loop = false;
   snd1.autoplay = false;
@@ -30,6 +31,7 @@ $(document).ready(function() {
   //snd2.type = 'audio/mpeg';
   snd2.src = './src/audio/karanokokoro-ng.mp3';
   //snd2.preload = 'auto';
+  snd2.id = "audio2";
   snd2.controls = true;
   snd2.loop = false;
   snd2.autoplay = false;
@@ -74,7 +76,7 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED - 0.7");
+  $('#debug3').html("JS LOADED - 0.8");
 
   $('#play-button').click(function() {
     console.log(snd1);
