@@ -76,7 +76,7 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED - 0.91");
+  $('#debug3').html("JS LOADED - 0.92");
 
   $('#play-button').click(function() {
     console.log(snd1);
@@ -97,8 +97,8 @@ $(document).ready(function() {
       } else {
         $('#play-button').html('STOP');
         $('#debug2').html("PLAY PRESSED - STOP");
-        snd1.play();
-        snd2.play();
+        snd1.trigger('play');
+        snd2.trigger('play');
       }
     }
   });
