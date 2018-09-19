@@ -1,0 +1,28 @@
+.jumbotron {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.title {
+    color: white;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 6rem;
+
+}
+
+.general-button {
+    height: 3rem;
+    width: 50%;
+    transition-timing-function: ease-in;
+    -webkit-transition: width 0.2s, height 0.2s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.2s, height 0.2s;
+}
+
+.general-button:hover {
+    width: 60%;
+
+}
