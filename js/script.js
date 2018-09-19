@@ -89,7 +89,7 @@ $(document).ready(function() {
 
     if (bothReady) {
       console.log('if both ready');
-      if (snd1.duration > 0 && !snd1.paused) {
+      if (hcAudio.duration > 0 && !hcAudio.paused) {
         $('#play-button').html('PLAY');
         // snd1.load();
         // snd2.load();
@@ -131,6 +131,9 @@ $(document).ready(function() {
   var hcAudio = document.getElementById('hc-audio');
   var hcAudio2 = document.getElementById('hc-audio2');
 
+  var sauce1 = document.getElementById('src1');
+  var sauce2 = document.getElementById('src2');
+
   hcAudio.volume = 1;
   hcAudio2.volume = 0;
 
@@ -149,5 +152,20 @@ $(document).ready(function() {
     }
     //$('#hc-audio').trigger('play');
   });
+
+  $('#button-4').on('click' , function(){
+    //yokai.mp3
+    hcAudio.pause();
+    hcAudio2.pause();
+    sauce1.src = './src/audio/yokai.mp3'
+
+    hcAudio.load();
+    hcAudio2.load();
+
+    hcAudio.play();
+    hcAudio2.play();
+
+
+  })
 
 });
