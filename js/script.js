@@ -76,7 +76,7 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED - 0.9");
+  $('#debug3').html("JS LOADED - 0.91");
 
   $('#play-button').click(function() {
     console.log(snd1);
@@ -117,4 +117,12 @@ $(document).ready(function() {
       $('#switch-button').html('SWITCH - WITH GUITAR');
     }
   });
+
+
+  $('#button-3').on('click', function(){
+    console.log("BUTTON 3");
+    $('#debug3').html("HC AUDIO PLAY");
+    $('#hc-audio').trigger('play');
+  });
+
 });
