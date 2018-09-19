@@ -32,6 +32,8 @@ $(document).ready(function() {
   function canPlayLiao(src) {
     console.log(src);
 
+    
+
     if (src === 'src1') {
       console.log('src1 ready');
       audio1Ready = true;
@@ -47,10 +49,14 @@ $(document).ready(function() {
     } else {
       $('#play-button').css('opacity', '0.3');
     }
+
+    $('#debug').html("src1 = " + audio1Ready + " | src2 = " + audio2Ready + " | both = " + bothReady);
   }
 
   $('#play-button').click(function() {
     console.log(snd1);
+
+    $('#debug2').html("PLAY PRESSED");
 
     if (bothReady) {
       console.log('if both ready');
@@ -58,8 +64,10 @@ $(document).ready(function() {
         $('#play-button').html('PLAY');
         snd1.load();
         snd2.load();
+        $('#debug2').html("PLAY PRESSED - PLAY");
       } else {
         $('#play-button').html('STOP');
+        $('#debug2').html("PLAY PRESSED - STOP");
         snd1.play();
         snd2.play();
       }
