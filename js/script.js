@@ -76,7 +76,7 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED - 0.92");
+  $('#debug3').html("JS LOADED - 0.93");
 
   $('#play-button').click(function() {
     console.log(snd1);
@@ -91,14 +91,20 @@ $(document).ready(function() {
       console.log('if both ready');
       if (snd1.duration > 0 && !snd1.paused) {
         $('#play-button').html('PLAY');
-        snd1.load();
-        snd2.load();
+        // snd1.load();
+        // snd2.load();
+        hcAudio.load();
+        hcAudio2.load();
         $('#debug2').html("PLAY PRESSED - PLAY");
       } else {
         $('#play-button').html('STOP');
         $('#debug2').html("PLAY PRESSED - STOP");
-        snd1.trigger('play');
-        snd2.trigger('play');
+        // snd1.play();
+        // snd2.play();
+        // $('#audio1').trigger('play');
+        // $('#audio2').trigger('play');
+        hcAudio.play();
+        hcAudio2.play();
       }
     }
   });
@@ -107,22 +113,41 @@ $(document).ready(function() {
   $('#switch-button').on('click', function() {
     if (playWithGuitar === true) {
       playWithGuitar = false;
-      snd1.volume = 0;
-      snd2.volume = 0.9;
+      // snd1.volume = 0;
+      // snd2.volume = 0.9;
+      hcAudio.volume = 0;
+      hcAudio2.volume = 0.9;
       $('#switch-button').html('SWITCH - NO GUITAR');
     } else {
       playWithGuitar = true;
-      snd1.volume = 1;
-      snd2.volume = 0;
+      // snd1.volume = 1;
+      // snd2.volume = 0;
+      hcAudio.volume = 1;
+      hcAudio2.volume = 0;
       $('#switch-button').html('SWITCH - WITH GUITAR');
     }
   });
+
+  var hcAudio = document.getElementById('hc-audio');
+  var hcAudio2 = document.getElementById('hc-audio2');
+
+  hcAudio.volume = 1;
+  hcAudio2.volume = 0;
 
 
   $('#button-3').on('click', function(){
     console.log("BUTTON 3");
     $('#debug3').html("HC AUDIO PLAY");
-    $('#hc-audio').trigger('play');
+    hcAudio.trigger('play');
+    if( hcAudio.paused == true ){
+      hcAudio.play();
+      hcAudio2.play();
+    }
+    else{
+      hcAudio.pause();
+      hcAudio2.pause();
+    }
+    //$('#hc-audio').trigger('play');
   });
 
 });
