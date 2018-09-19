@@ -76,7 +76,7 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED - 0.93");
+  $('#debug3').html("JS LOADED - 0.95");
 
   $('#play-button').click(function() {
     console.log(snd1);
@@ -87,7 +87,7 @@ $(document).ready(function() {
 
     $('#debug2').html("PLAY PRESSED");
 
-    if (bothReady) {
+    if (true) {
       console.log('if both ready');
       if (hcAudio.duration > 0 && !hcAudio.paused) {
         $('#play-button').html('PLAY');
@@ -133,6 +133,9 @@ $(document).ready(function() {
 
   var sauce1 = document.getElementById('src1');
   var sauce2 = document.getElementById('src2');
+
+  hcAudio.load();
+  hcAudio2.load();
 
   hcAudio.volume = 1;
   hcAudio2.volume = 0;
