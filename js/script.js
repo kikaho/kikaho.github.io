@@ -1,24 +1,35 @@
 $(document).ready(function() {
   var snd1 = new Audio();
-  var src1 = document.createElement('source');
-  src1.type = 'audio/mpeg';
-  src1.src = './src/audio/karanokokoro-g.mp3';
-  src1.preload = 'auto';
+  // var src1 = document.createElement('source');
+  // src1.type = 'audio/mpeg';
+  // src1.src = './src/audio/karanokokoro-g.mp3';
+  // src1.preload = 'auto';
+
+
+
+  snd1.type = 'audio/mpeg';
+  snd1.src = './src/audio/karanokokoro-g.mp3';
+  snd1.preload = 'auto';
   snd1.oncanplay = function() {
     canPlayLiao('src1');
   };
 
-  snd1.appendChild(src1);
+  //snd1.appendChild(src1);
 
   var snd2 = new Audio();
-  var src2 = document.createElement('source');
-  src2.type = 'audio/mpeg';
-  src2.src = './src/audio/karanokokoro-ng.mp3';
-  src2.preload = 'auto';
+  // var src2 = document.createElement('source');
+  // src2.type = 'audio/mpeg';
+  // src2.src = './src/audio/karanokokoro-ng.mp3';
+  // src2.preload = 'auto';
+
+
+  snd2.type = 'audio/mpeg';
+  snd2.src = './src/audio/karanokokoro-ng.mp3';
+  snd2.preload = 'auto';
   snd2.oncanplay = function() {
     canPlayLiao('src2');
   };
-  snd2.appendChild(src2);
+  // snd2.appendChild(src2);
 
   var audio1Ready = false;
   var audio2Ready = false;
@@ -55,7 +66,7 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED");
+  $('#debug3').html("JS LOADED - 0.5");
 
   $('#play-button').click(function() {
     //console.log(snd1);
