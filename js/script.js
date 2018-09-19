@@ -37,24 +37,25 @@ $(document).ready(function() {
     if (src === 'src1') {
       console.log('src1 ready');
       audio1Ready = true;
-    } else if (src === 'src2') {
+      bothReady = true;
+    } /* else if (src === 'src2') {
       console.log('src2 ready');
       audio2Ready = true;
-    }
+    } */
 
-    if (audio1Ready && audio2Ready) {
+    /* if (audio1Ready && audio2Ready) {
       console.log('BOTH READY');
       bothReady = true;
       $('#play-button').css('opacity', '1');
     } else {
       $('#play-button').css('opacity', '0.3');
-    }
+    } */
 
-    $('#debug').html("src1 = " + audio1Ready + " | src2 = " + audio2Ready + " | both = " + bothReady);
+    $('#debug').html("src1 = " + audio1Ready + " | src2 = " /* + audio2Ready */ + " | both = " + bothReady);
   }
 
   $('#play-button').click(function() {
-    console.log(snd1);
+    //console.log(snd1);
 
     $('#debug2').html("PLAY PRESSED");
 
