@@ -10,22 +10,22 @@ $(document).ready(function() {
 
   snd1.appendChild(src1);
 
-  var snd2 = new Audio();
-  var src2 = document.createElement('source');
-  src2.type = 'audio/mpeg';
-  src2.src = './src/audio/karanokokoro-ng.mp3';
-  src2.preload = 'auto';
-  snd2.oncanplay = function() {
-    canPlayLiao('src2');
-  };
-  snd2.appendChild(src2);
+  // var snd2 = new Audio();
+  // var src2 = document.createElement('source');
+  // src2.type = 'audio/mpeg';
+  // src2.src = './src/audio/karanokokoro-ng.mp3';
+  // src2.preload = 'auto';
+  // snd2.oncanplay = function() {
+  //   canPlayLiao('src2');
+  // };
+  // snd2.appendChild(src2);
 
   var audio1Ready = false;
   var audio2Ready = false;
   var bothReady = false;
 
   snd1.volume = 1;
-  snd2.volume = 0;
+  // snd2.volume = 0;
 
   var playWithGuitar = true;
 
@@ -63,13 +63,13 @@ $(document).ready(function() {
       if (snd1.duration > 0 && !snd1.paused) {
         $('#play-button').html('PLAY');
         snd1.load();
-        snd2.load();
+        //snd2.load();
         $('#debug2').html("PLAY PRESSED - PLAY");
       } else {
         $('#play-button').html('STOP');
         $('#debug2').html("PLAY PRESSED - STOP");
         snd1.play();
-        snd2.play();
+        //snd2.play();
       }
     }
   });
@@ -79,12 +79,12 @@ $(document).ready(function() {
     if (playWithGuitar === true) {
       playWithGuitar = false;
       snd1.volume = 0;
-      snd2.volume = 0.9;
+      //snd2.volume = 0.9;
       $('#switch-button').html('SWITCH - NO GUITAR');
     } else {
       playWithGuitar = true;
       snd1.volume = 1;
-      snd2.volume = 0;
+      //snd2.volume = 0;
       $('#switch-button').html('SWITCH - WITH GUITAR');
     }
   });
