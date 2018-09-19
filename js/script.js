@@ -7,9 +7,13 @@ $(document).ready(function() {
 
 
 
-  snd1.type = 'audio/mpeg';
+  // snd1.type = 'audio/mpeg';
   snd1.src = './src/audio/karanokokoro-g.mp3';
-  snd1.preload = 'auto';
+  // snd1.preload = 'auto';
+  snd1.controls = true;
+  snd1.loop = false;
+  snd1.autoplay = false;
+  snd1.volume = 0.8;
   snd1.oncanplay = function() {
     canPlayLiao('src1');
   };
@@ -23,9 +27,13 @@ $(document).ready(function() {
   // src2.preload = 'auto';
 
 
-  snd2.type = 'audio/mpeg';
+  //snd2.type = 'audio/mpeg';
   snd2.src = './src/audio/karanokokoro-ng.mp3';
-  snd2.preload = 'auto';
+  //snd2.preload = 'auto';
+  snd2.controls = true;
+  snd2.loop = false;
+  snd2.autoplay = false;
+  snd2.volume = 0.8;
   snd2.oncanplay = function() {
     canPlayLiao('src2');
   };
@@ -66,7 +74,7 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED - 0.6");
+  $('#debug3').html("JS LOADED - 0.7");
 
   $('#play-button').click(function() {
     console.log(snd1);
