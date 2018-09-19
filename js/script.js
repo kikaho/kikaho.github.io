@@ -66,10 +66,14 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED - 0.5");
+  $('#debug3').html("JS LOADED - 0.6");
 
   $('#play-button').click(function() {
-    //console.log(snd1);
+    console.log(snd1);
+    console.log("^snd1");
+
+    console.log(snd2);
+    console.log("^snd2");
 
     $('#debug2').html("PLAY PRESSED");
 
