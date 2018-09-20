@@ -76,7 +76,7 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED - 0.95");
+  $('#debug3').html("JS LOADED - 0.96");
 
   $('#play-button').click(function() {
     console.log(snd1);
@@ -156,19 +156,43 @@ $(document).ready(function() {
     //$('#hc-audio').trigger('play');
   });
 
+  // $('#button-4').on('click' , function(){
+  //   //yokai.mp3
+  //   hcAudio.pause();
+  //   hcAudio2.pause();
+  //   sauce1.src = './src/audio/yokai.mp3'
+
+  //   hcAudio.load();
+  //   hcAudio2.load();
+
+
+
+
+
+  // })
+
+
+
+  var audio = new Audio();
+  var currentPlaylistIndex = 0;
+  var seeking = false; // Determine if user is pressing the player seeking bar
+  
+  audio.src = './src/audio/yokai.mp3'; //'audio/' + playlist[currentPlaylistIndex] + extension;
+  audio.controls = true;
+  audio.loop = false;
+  audio.autoplay = false;
+  audio.volume = 0.8;
+  audio.load();
+  audio.addEventListener('loadedmetadata', function() {
+    console.log("AUDIO LOADMETADATA");
+      // $('#midi-end-time').text(secondToString(audio.duration));
+      // $('#seek-slider').val('0').change();
+  });
+
   $('#button-4').on('click' , function(){
-    //yokai.mp3
-    hcAudio.pause();
-    hcAudio2.pause();
-    sauce1.src = './src/audio/yokai.mp3'
-
-    hcAudio.load();
-    hcAudio2.load();
-
-    hcAudio.play();
-    hcAudio2.play();
-
-
-  })
+    $('#debug3').html("Button 2 v2.0 PLAY");
+    audio.play();
+    console.log("BUTTON 2 Version 2.0 PLAY");
+  });
 
 });
