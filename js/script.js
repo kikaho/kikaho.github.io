@@ -76,7 +76,7 @@ $(document).ready(function() {
   }
 
 
-  $('#debug3').html("JS LOADED - 0.96");
+  $('#debug3').html("JS LOADED - 0.99");
 
   $('#play-button').click(function() {
     console.log(snd1);
@@ -109,7 +109,7 @@ $(document).ready(function() {
     }
   });
 
-  $('#switch-button').html('SWITCH - WITH GUITAR');
+  $('#switch-button').html('FLIP THAT SHIT');
   $('#switch-button').on('click', function() {
     if (playWithGuitar === true) {
       playWithGuitar = false;
@@ -117,14 +117,14 @@ $(document).ready(function() {
       // snd2.volume = 0.9;
       hcAudio.volume = 0;
       hcAudio2.volume = 0.9;
-      $('#switch-button').html('SWITCH - NO GUITAR');
+      $('#switch-button').html('Flip - Audio1');
     } else {
       playWithGuitar = true;
       // snd1.volume = 1;
       // snd2.volume = 0;
       hcAudio.volume = 1;
       hcAudio2.volume = 0;
-      $('#switch-button').html('SWITCH - WITH GUITAR');
+      $('#switch-button').html('Flip - Audio2');
     }
   });
 
@@ -141,36 +141,37 @@ $(document).ready(function() {
   hcAudio2.volume = 0;
 
 
-  $('#button-3').on('click', function(){
-    console.log("BUTTON 3");
-    $('#debug3').html("HC AUDIO PLAY");
-    hcAudio.trigger('play');
-    if( hcAudio.paused == true ){
-      hcAudio.play();
-      hcAudio2.play();
-    }
-    else{
-      hcAudio.pause();
-      hcAudio2.pause();
-    }
-    //$('#hc-audio').trigger('play');
-  });
+  // $('#button-3').on('click', function(){
+  //   console.log("BUTTON 3");
+  //   $('#debug3').html("HC AUDIO PLAY");
+  //   if( hcAudio.paused == true ){
+  //     hcAudio.play();
+  //     hcAudio2.play();
+  //   }
+  //   else{
+  //     hcAudio.pause();
+  //     hcAudio2.pause();
+  //   }
+  //   //$('#hc-audio').trigger('play');
+  // });
 
-  // $('#button-4').on('click' , function(){
-  //   //yokai.mp3
-  //   hcAudio.pause();
-  //   hcAudio2.pause();
-  //   sauce1.src = './src/audio/yokai.mp3'
+  $('#button-4').on('click' , function(){
+    //yokai.mp3
+    hcAudio.pause();
+    hcAudio2.pause();
+    sauce1.src = './src/audio/yokai.mp3'
 
-  //   hcAudio.load();
-  //   hcAudio2.load();
+    hcAudio.load();
+    hcAudio2.load();
+    $('#play-button').html('PLAY');
+    $('#button-4').html('SAUCE CHANGED');
+
+  })
 
 
-
-
-
-  // })
-
+  /* 
+    AUDIO 2.0
+  */
 
 
   var audio = new Audio();
@@ -180,7 +181,7 @@ $(document).ready(function() {
   audio.controls = true;
   audio.loop = false;
   audio.autoplay = false;
-  audio.volume = 1;
+  // audio.volume = 1;
   audio.load();
   audio.addEventListener('loadedmetadata', function() {
     console.log("AUDIO 1 LOADMETADATA");
@@ -191,7 +192,7 @@ $(document).ready(function() {
   audio2.controls = true;
   audio2.loop = false;
   audio2.autoplay = false;
-  audio2.volume = 0;
+  // audio2.volume = 0;
   audio2.load();
   audio2.addEventListener('loadedmetadata', function() {
     console.log("AUDIO 2 LOADMETADATA");
@@ -199,10 +200,20 @@ $(document).ready(function() {
   });
 
   $('#button-2a').on('click' , function(){
-    $('#button-2a').html("PLAY");
+    
     $('#debug3').html("Button 2 v2.0 PLAY");
-    audio.play();
-    audio2.play();
+
+
+    if(audio.paused && audio2.paused){
+      $('#button-2a').html("STOP");
+      audio.play();
+    } else{
+      $('#button-2a').html("PLAY");
+      audio.pause();
+      audio2.pause();
+    }
+
+    //audio2.play();
     console.log("BUTTON 2 Version 2.0 PLAY");
   });
 
@@ -210,18 +221,30 @@ $(document).ready(function() {
     
     console.log("BUTTON 2 Version 2.0 PLAY");
 
-    if(audio.volume > 0){
+    console.log("FLIP: audio1 = " + audio.currentTime + " | audio2 = " + audio2.currentTime);
+
+    if( audio2.paused ){//audio.volume > 0){
       $('#button-2b').html("FLIP - AUDIO 2");
       $('#debug3').html("AUDIO 2 PLAYING");
-      audio.volume = 0;
-      audio2.volume = 1;
+      // audio.volume = 0;
+      // audio2.volume = 1;
+
+
+      audio.pause();
+      audio2.currentTime = audio.currentTime;
+      audio2.play();
+
     }
     else{
       $('#debug3').html("AUDIO 1 PLAYING");
       $('#button-2b').html("FLIP - AUDIO 1");
-      audio.volume = 1;
-      audio2.volume = 0;
+      // audio.volume = 1;
+      // audio2.volume = 0;
+      audio2.pause();
+      audio.currentTime = audio2.currentTime;
+      audio.play();
     }
+    console.log("AFTER FLIP: audio1 = " + audio.currentTime + " | audio2 = " + audio2.currentTime);
   });
 
 });
