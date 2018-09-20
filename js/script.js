@@ -174,25 +174,54 @@ $(document).ready(function() {
 
 
   var audio = new Audio();
-  var currentPlaylistIndex = 0;
-  var seeking = false; // Determine if user is pressing the player seeking bar
-  
-  audio.src = './src/audio/yokai.mp3'; //'audio/' + playlist[currentPlaylistIndex] + extension;
+  var audio2 = new Audio();
+
+  audio.src = './src/audio/karanokokoro-g.mp3'; //'audio/' + playlist[currentPlaylistIndex] + extension;
   audio.controls = true;
   audio.loop = false;
   audio.autoplay = false;
-  audio.volume = 0.8;
+  audio.volume = 1;
   audio.load();
   audio.addEventListener('loadedmetadata', function() {
-    console.log("AUDIO LOADMETADATA");
-      // $('#midi-end-time').text(secondToString(audio.duration));
-      // $('#seek-slider').val('0').change();
+    console.log("AUDIO 1 LOADMETADATA");
+    $('#debug4').html("Audio 1 LOADED");
   });
 
-  $('#button-4').on('click' , function(){
+  audio2.src = './src/audio/karanokokoro-ng.mp3'; //'audio/' + playlist[currentPlaylistIndex] + extension;
+  audio2.controls = true;
+  audio2.loop = false;
+  audio2.autoplay = false;
+  audio2.volume = 0;
+  audio2.load();
+  audio2.addEventListener('loadedmetadata', function() {
+    console.log("AUDIO 2 LOADMETADATA");
+    $('#debug5').html("Audio 2 LOADED");
+  });
+
+  $('#button-2a').on('click' , function(){
+    $('#button-2a').html("PLAY");
     $('#debug3').html("Button 2 v2.0 PLAY");
     audio.play();
+    audio2.play();
     console.log("BUTTON 2 Version 2.0 PLAY");
+  });
+
+  $('#button-2b').on('click' , function(){
+    
+    console.log("BUTTON 2 Version 2.0 PLAY");
+
+    if(audio.volume > 0){
+      $('#button-2b').html("FLIP - AUDIO 2");
+      $('#debug3').html("AUDIO 2 PLAYING");
+      audio.volume = 0;
+      audio2.volume = 1;
+    }
+    else{
+      $('#debug3').html("AUDIO 1 PLAYING");
+      $('#button-2b').html("FLIP - AUDIO 1");
+      audio.volume = 1;
+      audio2.volume = 0;
+    }
   });
 
 });
