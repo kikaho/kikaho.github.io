@@ -87,7 +87,6 @@ function init(){
 	$('#back-button').css( "opacity", "0" );
 	$('#back-button').css( "display", "none" );
 
-	preloadImages();
 	preloadAudioTracks();
 	reInitTrack(false);
 
