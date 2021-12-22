@@ -1,0 +1,1544 @@
+/* 2021 */
+
+
+/* Newly Added */
+/* #mobile-audio-flip{
+	display: none;
+	opacity: 0;
+} */
+
+.wrapper {
+	/* height: 100vh; */
+	/*This part is important for centering*/
+    /* display: flex; */
+	/* align-items: center;
+	justify-content: center; */
+  }
+.typing-demo {
+	width: 22ch;
+	/* animation: typing 5s steps(22), blink 1.95s step-end infinite alternate; */
+	animation: typing 5s steps(22);
+	white-space: nowrap;
+	overflow: hidden;
+	/* border-right: 3px solid; */
+	font-family: monospace;
+	font-size: 2em;
+
+	/* animation: */
+}
+
+@keyframes typing {
+	from {
+		width: 0
+	}
+}
+@keyframes blink {
+	50% {
+	  border-color: transparent
+	}
+}
+
+
+#landing-button-container-desktop {
+	position: fixed;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+}
+
+.small-button {
+	cursor: pointer;
+	color: white;
+	font-size: 1.5rem;
+	z-index: 5;
+	transition: all 0.25s ease-out;
+}
+.small-button:hover{
+	font-size: 1.6rem;
+	opacity: 0.8;
+}
+
+.guitar-tab-link{
+	transition: all 0.25s ease-out;
+	
+}
+.guitar-tab-link:hover {
+	padding-left: 0.5rem;
+}
+
+.landing-button-hidden {
+	cursor: pointer;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	/* padding-bottom: 3rem; */
+	font-weight: bolder;
+
+	color: white;
+	text-align: center;
+    display: inline-block;
+	/* height: 15rem;
+	line-height: 15rem; */
+	font-size: 5rem; /* 1.4rem; */
+	line-height: 5rem;
+
+	z-index: 5;
+	opacity: 0;
+	transition: all 0.5s ease-out;
+}
+
+.landing-button-hidden:hover {
+	font-size: 5.2rem;
+	opacity: 1;
+	/* line-height: 2.5rem; */
+}
+
+.landing-button {
+	cursor: pointer;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	/* padding-bottom: 3rem; */
+	font-weight: bolder;
+
+	color: white;
+	text-align: center;
+    display: inline-block;
+	/* height: 15rem;
+	line-height: 15rem; */
+	font-size: 5rem; /* 1.4rem; */
+	line-height: 5rem;
+
+	z-index: 5;
+	transition: all 0.25s ease-out;
+}
+
+.landing-button:hover {
+	font-size: 6rem;
+	opacity: 0.8;
+	/* line-height: 2.5rem; */
+}
+
+#landing-title-container {
+	top: unset;
+	position: unset;
+	z-index: 6;
+}
+
+#landing-title {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	/* border-top: 2px solid white; */
+	/* border-bottom: 2px solid white; */
+	/* height: 3rem;
+	width: 16rem; */
+	padding-bottom: 3rem;
+	font-weight: lighter;
+
+	color: white;
+
+	height: 3rem;
+	line-height: 3rem;
+	font-size: 2rem;
+	width: 25%;
+	position: fixed;
+
+	z-index: 5;
+}
+
+#mobile-playlist {
+	display: none;
+}
+
+
+#desktop-playlist {
+	position: fixed;
+	/* background-color: #8fc31f; */
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 9%;
+	border-right: 1px solid #d8d8d8;
+	box-shadow: 4px 2px 20px 0px #ebebeb;
+}
+
+.player-title-desktop-position{
+	position: fixed;
+	top: 8%;
+}
+
+#player-title-text{
+	color: #8fc31f;
+	font-size: 2rem;
+	line-height: 2rem;
+	font-weight: lighter;
+}
+
+#player-date-text{
+
+}
+
+#player-description-text{
+
+}
+
+#player-thumbnail-desktop{
+	max-height: 15rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+#player-thumbnail-mobile{
+	display: none;
+}
+
+#desktop-button-container{
+	position: absolute;
+    right: 0;
+}
+
+#desktop-flip-button, #youtube-button-desktop, #mobile-flip-button{
+	cursor: pointer;
+	/* align-self: flex-end; */
+	text-align: center;
+	font-weight: lighter;
+	font-size: 0.8rem;
+	
+	min-height: 2rem;
+	line-height: 2rem;
+	/* margin-bottom: 20px; */
+	right: 0;
+	transition: all 0.25s ease-out;
+	
+}
+
+.audio-flip-button, #youtube-button-desktop{
+	border-width: 1px;
+	color: #8fc31f;
+	border: 1px solid #8fc31f;
+	background: transparent;
+	outline:none;
+	transition: all 0.25s ease-out;
+}
+
+.audio-flip-button:focus, #youtube-button-desktop:focus {outline:none;}
+
+
+
+.audio-flip-button-triggered {
+	border-width: 1px;
+	/* color: #4C4C4C;
+	border: 1px solid #4C4C4C;
+	background: rgba(76,76,76, 0.1); */
+	color: rgba(143, 195, 31, 0.38);
+	border: 1px solid rgba(143, 195, 31, 0.38);
+	
+	outline:none;
+	transition: all 0.25s ease-out;
+}
+
+
+/* .mobile-bottom-buttons{
+	line-height: 4rem;
+    text-align: center;
+	color: white;
+	background: rgba(143,195,31, 0.5)
+} */
+
+#youtube-button-mobile { 
+	display: none;
+	transition: all 0.25s ease-out;
+	cursor: pointer;
+}
+
+/* #youtube-button-mobile { 
+	display: unset;
+    position: absolute;
+    right: 2.2rem;
+    top: 16rem;
+    text-align: center;
+}
+
+#youtube-button-mobile i { 
+	font-size: 2rem;
+	color: red;
+}
+
+#youtube-button-mobile span { 
+	font-size: 0.7rem;
+} */
+
+
+
+#youtube-button-desktop { 
+	cursor: pointer;
+	/* position: absolute;
+    right: 0; */
+    top: unset;
+	/* text-align: center; */
+	
+	
+}
+
+#youtube-button-desktop i { 
+	/* float: right; */
+	/* font-size: 1.4rem;
+	color: red; */
+}
+
+#youtube-button-desktop p { 
+	/* font-size: 0.7rem;
+	line-height: 2rem; */
+	display: inline;
+}
+
+
+/*THEME COLORS */
+.color-white{
+	color: #FFFFFF;
+}
+
+.color-black{
+	color: rgba(0,0,0,0.7);
+}
+
+.color-green{
+	color: #8fc31f; /* rgba(143,195,31, 1) */
+}
+
+.bg-color-white{
+	background-color: #fff;
+}
+
+.bg-color-black{
+	background-color: rgba(0,0,0,0.7);
+}
+
+.bg-color-green{
+	background-color: #8fc31f;
+}
+
+.box{
+	width: 300px;
+	height: 300px;
+	background-color: #555;
+}
+
+.text{
+	font-size: 50px;
+	background-color: #003355;
+}
+
+.text:active{
+	background-color: #553300;
+}
+
+.box:active{
+	background-color: #aaa;
+}
+
+
+/* Used in programming-list and music-list */
+.text-medium-5 {
+	color: rgb(76,76,76);
+	font-size: 1.75rem;
+	font-weight: 600;
+	line-height: 0.5rem;
+	margin-bottom: 0.45rem;
+	margin-top: 2.0rem;
+}
+
+/* Currently the only usage is MIDI title */
+.text-medium-4 {
+	color: rgb(76,76,76);
+	font-size: 1.5rem;
+	font-weight: 400;
+	line-height: 0.5rem;
+	margin-bottom: 0.45rem;
+	margin-top: 2.0rem;
+}
+
+/* Mainly for sub-title with green text */
+.text-medium-3 {
+	color: rgb(76,76,76);
+	font-size: 1.15rem;
+	font-weight: 400;
+	line-height: 1.15rem;
+	margin-bottom: 0;
+}
+
+.text-medium-2 {
+	color: rgb(76,76,76);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.15rem;
+	margin-bottom: 0;
+}
+
+
+/* Most of the detail text */
+.text-medium-1 {
+	color: rgb(76,76,76);
+	font-size: 0.85rem;
+	font-weight: 400;
+	line-height: 1.2rem;
+	margin-bottom: 0rem;
+}
+
+.textSmall2{
+	color: rgb(76,76,76);
+	font-size: 0.80rem;
+	font-weight: 400;
+}
+
+
+/* Smallest font size */
+.textSmall{
+	color: rgb(76,76,76);
+	font-size: 0.70rem;
+	font-weight: 400;
+}
+
+.no-wrap{
+	white-space: nowrap;
+}
+
+/* HOLDER */
+html,body{
+	color: rgb(76,76,76);
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	transition-duration: 0.2s;
+	min-height: 35rem;
+	background: rgba(255,255,255,1); /*#134e5e;*/ /* fallback for old browsers */
+	/*background: -webkit-linear-gradient(to right, #134e5e, #71b280);*/ /* Chrome 10-25, Safari 5.1-6 */
+	/*background: linear-gradient(to right, #134e5e, #71b280);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-size: cover;
+}
+
+/* Default text highlight color */
+::-moz-selection { background: rgba(143,195,31, 0.3)}
+::selection { background: rgba(143,195,31, 0.3); }
+
+
+/*
+	======================================================================
+	Initial Screen
+	======================================================================
+*/
+
+#initial-screen{
+	z-index: 1000;
+	background-color: rgb(255,255,255);
+	position: fixed;
+	min-width: 100%;
+	min-height: 40rem;
+	height: 100%;
+	overflow: hidden;
+}
+
+#background-image {
+	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+	left: 0;
+	
+	height: 100%;
+	background: url('../images/background.png') center / cover no-repeat; /*center center / cover no-repeat;*/ /* Background fall back */
+	background-color: rgba(143,195,31,0.5);
+	/* -webkit-transition: all 0.55s ease-in-out;
+	-moz-transition: all 0.55s ease-in-out; */
+	/* transform: scale(2,2); */
+
+}
+
+#bg-img-container {
+	position: fixed;
+    top: -2.5%;
+    right: 0;
+    bottom: 0;
+    left: -2.5%;
+	overflow: hidden;
+	height: 105%;
+	width: 105%;
+}
+
+#background-video-container{
+	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    min-height: 40rem;
+    /*background-size: cover;*/
+	background-color: rgba(143,195,31,0.5);
+
+
+    /*animation: background-animationX 15s, background-animationY 10s;*/
+    /*animation-timing-function: ease-in-out;
+    animation-iteration-count:infinite;*/
+}
+
+@keyframes background-animationX {
+    0%{left: -2rem;}
+    50%{left: 0px;}
+    100%{left: -2rem;}
+}
+
+@keyframes background-animationY {
+    0%{top: -2rem;}
+    50%{top: 0px;}
+    100%{top: -2rem;}
+}
+
+#background-video-container video {
+	position: absolute;
+    /*left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);*/
+    min-width: 100%;
+    min-height: 100%;
+	width: auto;
+	height: auto;
+	background-size: cover;
+}
+
+
+
+/* 
+	======================================================================
+	DEMO & SLICK
+	======================================================================
+*/
+.slick,
+.slick-list,
+.slick-track,
+.content{
+	height: 100%;
+	width:100%;
+	min-height: 40rem;
+}
+
+.slick-slider {
+	-webkit-user-select: text;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+
+/* First container inside slick */
+.demo{
+	position: absolute;
+	min-height: 40rem;
+	/*background-color: rgba(200,255,100,0.2);*/
+	/*padding-top: 5rem;*/
+	/*border: 1px solid black;*/
+	/*margin: 8rem;*/
+	/*height: inherit;*/
+	/*table-layout:fixed;*/
+}
+
+
+/* Include following class to generate vertical divider in between columns */
+.row [class*='verticalDivider']:not(:last-child):after {
+	background: rgba(76,76,76,0.5);
+	width: 1px;
+	height: 100%;
+	vertical-align: middle;
+	content: "";
+	display:block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	min-height: auto;
+}
+
+
+/* Default design for buttons inside a demo, eg:"VIEW DEMO" and "VIEW ON GITHUB"; */
+.demo-button {
+	cursor: pointer;
+	position: relative;
+	background-color: transparent;
+	border: 1px solid rgba(50,50,50,0.4);
+	color: rgb(76,76,76);
+	padding: 2px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 0.9rem;
+	margin: 6px 2px;
+	width: 12rem;
+	outline:none;
+	display: inline;
+}
+
+.demo-button:focus {outline:none;}
+
+.demo-button:hover {
+	background-color: /*rgba(143,195,31, 0.1);*/ rgba(150,150,150,0.1);
+	outline:none;
+}
+
+.demo-button span{
+	opacity: 0.75;
+	font-size: 0.6rem;
+	right: 5px;
+	position: absolute;
+}
+
+.magnificPopupImageTriger{
+	cursor: pointer;
+}
+
+
+.overlay{
+	color: rgba(255,255,255,0.85);
+	font-weight: 100;
+	font-size: 1.5rem;
+	background-color: rgba(0,0,0,0.3); /*rgba(143,195,31, 0.5);*/ /*rgba(0,0,0,0.3);*/
+	position: absolute; 
+	top: 0; 
+	right: 0; 
+	height: 100%;
+	width: 100%;
+	transition-duration: 0.2s;
+	opacity: 0;
+}
+
+.overlay .overlayText{
+	padding-top: 0.2rem;
+	color: rgba(255,255,255,1);
+	font-weight: 300;
+	font-size: 0.8rem;
+}
+
+.magnificPopupImageTriger:hover .overlay {
+	opacity: 1;
+}
+
+
+.magnificPopupImageTriger img{
+	opacity: 1;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+}
+
+
+/*
+	======================================================================
+	NAVIGATION BUTTONS (Programming, Resume, Music, Prev, Next)
+	======================================================================
+*/
+
+
+.navigation-top {
+	/*padding-top: 5%;*/
+	top: 7.5%;
+	z-index: 500;
+	transition-duration: 0.2s;
+}
+
+/* Project title's font */
+#title{
+	font-size: 2.8rem;
+	text-align: left;
+	padding-left: 0;
+	/*background-color: rgba(0,0,0,0.1);*/
+	border: none;
+	color: rgb(76,76,76);;
+	border-radius: 0;
+	z-index: 5;
+	width: 100%;
+	height: 100%;
+	line-height: 100%;
+	white-space: pre-wrap;
+	font-weight: 400;
+}
+
+
+#back-button, #back-button-midi{
+	/* display: none; */ /* Hide initially */
+	color: rgb(76,76,76);;
+	font-size: 2rem;
+	line-height: 100%;
+	text-align: right;
+	white-space: nowrap;
+	cursor:pointer;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	border-radius: 0;
+	z-index: 5;
+	/* width: 100%;
+	height: 100%; */
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 100;
+	float: right;
+}
+
+
+/* BACK BUTTON */
+#back-button-old, #back-button-midi-old{
+	/* display: none; */ /* Hide initially */
+	color: rgb(76,76,76);;
+	font-size: 2rem;
+	line-height: 100%;
+	text-align: right;
+	white-space: nowrap;
+	cursor:pointer;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	border-radius: 0;
+	z-index: 5;
+	/* width: 100%;
+	height: 100%; */
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 100;
+}
+
+#back-button:hover, #back-button-midi:hover {
+	color: rgb(76,76,76); /*rgba(255,255,255,0.5);*/
+	transition-duration: 0.2s;
+}
+
+/* To make button's text position in top right */
+#back-button span, #back-button-midi span {
+	/* display: block;
+	position: absolute;
+	top: 4rem;
+    right: 3rem; */
+}
+
+/* For easier reach */
+.back-button-extended-area{
+	position: absolute;
+	bottom: 0;
+	width: 150%;
+	height: 150%;
+	cursor:pointer;
+}
+
+.back-button-extended-area:hover ~ #back-button{
+	color: rgb(76,76,76, 0.5); /*rgba(255,255,255,0.5);*/
+	transition-duration: 0.2s;
+}
+
+
+/* BOTTOM - PROGRAMMING | RESUME | MUSIC */
+#navigation-bottom{
+	bottom: 0rem;
+	outline: none;
+}
+
+/* Six button classes below are the same thing but different font color */
+/* White font (without .black) for the main screen, black font (.black) for the rest */
+#navigation-bottom button.black{
+
+	font-size: 1.5rem;
+	background-color: rgba(0,0,0,0.0);
+	border: none;
+	color: rgb(50,50,50);
+	opacity: 0.8;
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: 0;
+	margin-right: 0;
+	border-radius: 0;
+	z-index: 5;
+	height: 6rem;
+	vertical-align: middle;
+	width: 100%;
+	outline: none;
+
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 100;
+}
+
+#navigation-bottom button.black:hover{
+	opacity: 1;
+	font-size: 1.65rem;
+	transition-duration: 0.2s;
+}
+
+#navigation-bottom button{
+	cursor: pointer;
+	font-size: 1.5rem;
+	background-color: rgba(0,0,0,0.0);
+	border: none;
+	color: rgb(255,255,255);
+	opacity: 1;
+	border-radius: 0;
+	z-index: 5;
+	height: 6rem;
+	width: 100%;
+	outline: none;
+
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 100;
+}
+
+#navigation-bottom button:hover{
+	opacity: 0.8;
+	font-size: 1.65rem;
+	transition-duration: 0.2s;
+}
+
+/* Vertical separating line between bottom buttons */
+#navigation-bottom .row .bottom-vertical-divider.black:after {
+	background: rgba(76,76,76,0.8);
+	width: 1px;
+	height: 80%;
+	vertical-align: middle;
+	content: "";
+	display:block;
+	position: absolute;
+	top:10%;
+	bottom: 0;
+	right: 0;
+	min-height: auto;
+}
+
+#navigation-bottom .row .bottom-vertical-divider:after {
+	background: rgba(255,255,255,1);
+	width: 1px;
+	height: 80%;
+	vertical-align: middle;
+	content: "";
+	display:block;
+	position: absolute;
+	top:10%;
+	bottom: 0;
+	right: 0;
+	min-height: auto;
+	margin-right: 0;
+	margin-left: 0;
+	padding-right: 0;
+	padding-left: 0;
+}
+
+
+
+/*
+	======================================================================
+	RESUME
+	======================================================================
+*/
+
+/* Text that is initially hidden until reveal button triggered */
+.hiddenText {
+	padding-right: 1rem;
+	padding-left: 1rem;
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.3s;
+    -moz-transition: height 0.3s; /* Firefox 4 */
+    -webkit-transition: height 0.3s; /* Safari and Chrome */
+    -o-transition: height 0.3s; /* Opera */
+}
+
+.hiddenTextToggle{
+	cursor: pointer;
+	transition-duration: 0.05s;
+}
+
+.hiddenTextToggle:hover {
+	opacity: 0.7;
+	padding-left: 0.2rem;
+}
+
+/*
+	======================================================================
+	Programming-list and Music-list
+	======================================================================
+*/
+
+.flexslider-toggle{
+	box-shadow: 1px 1px 5px #888888;
+}
+
+.card-horizontal-divider .container [class*='col']:not(:last-child):after {
+	background: rgba(255,255,255,0.5);
+	width: 75%;
+	height: 1px;
+	vertical-align: middle;
+	content: "";
+	display:block;
+	position: absolute;
+	bottom: 0;
+	min-height: auto;
+}
+
+.music-card, .programming-card {
+	cursor: pointer;
+}
+
+.music-card .text-medium-5, .programming-card .text-medium-5{
+	transition-duration: 0.15s;
+	-webkit-transition-timing-function: ease-out; /* Safari and Chrome */
+    transition-timing-function: ease-out;
+}
+
+.music-card:hover .text-medium-5, .programming-card:hover .text-medium-5{
+	font-size: 1.85rem;
+}
+
+.programming-card:hover, .music-card:hover {
+	transition-duration: 0.2s;
+	-webkit-transition-timing-function: ease-out; /* Safari and Chrome */
+    transition-timing-function: ease-out;
+}
+
+.programming-card-effect{
+	color: rgba(255,0,255,0.85);
+	font-weight: 100;
+	font-size: 1.5rem;
+	background-color: rgba(143,195,31, 0.5); /*rgba(143,195,31, 0.5);*/ /*rgba(0,0,0,0.3);*/
+	position: absolute; 
+	bottom: 0; 
+	height: 3px;
+	width: 0%;
+	transition-duration: 0.2s;
+}
+
+/*
+	======================================================================
+	Magnific popup > flexslider (from programming & music-item's thumbnail)
+	======================================================================
+*/
+.imageGalleryLightbox {
+	background:none;
+	border:none;
+	box-shadow:none;
+}
+
+.custom-flexslider-button-next{
+	cursor: pointer;
+	text-align: right;
+	height: 100%;
+	width: 25%;
+	position: absolute;
+	top: 0rem;
+	right: 0rem;
+	z-index: 500;
+	background-color: rgba(0,0,0,0);
+	border: none; /*1px solid rgba(255,255,255,0.4);*/
+	font-size: 0.9rem;
+	line-height: 70%;
+	color: rgba(255,255,255,0.1);
+	font-weight: 100;
+	/*text-align: right;*/
+	outline: none;
+	transition-duration: 0.35s;
+}
+
+.custom-flexslider-button-prev{
+	cursor: pointer;
+	text-align: left;
+	height: 100%;
+	width: 25%;
+	position: absolute;
+	top: 0rem;
+	left: 0rem;
+	z-index: 500;
+	background-color: linear-gradient(to right, rgba(0,0,0,0.0), rgba(0,0,0,0));
+	background: -webkit-linear-gradient(to right, rgba(0,0,0,0.0), rgba(0,0,0,0));
+	background: linear-gradient(to right, rgba(0,0,0,0.0), rgba(0,0,0,0));
+	border: none; /*1px solid rgba(255,255,255,0.4);*/
+	font-size: 0.8rem;
+	line-height: 70%;
+	color: rgba(255,255,255,0.1);
+	font-weight: 100;
+	outline: none;
+	transition-duration: 0.35s;
+}
+
+.custom-flexslider-button-next:hover{
+	color: rgba(255,255,255,0.8);
+	background-color: rgba(0,0,0,0.1);
+	background: -webkit-linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.1));
+	background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.1));
+}
+
+.custom-flexslider-button-prev:hover {
+	color: rgba(255,255,255,0.8);
+	background-color: rgba(0,0,0,0.1);
+	background: -webkit-linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0));
+	background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0));
+}
+
+.custom-flexslider-button-prev span, .custom-flexslider-button-next span{
+	font-size: 4rem;
+	font-weight: 100;
+}
+
+.custom-flexslider-button-prev:focus, .custom-flexslider-button-next:focus {outline:none;}
+
+.flexslider-container{
+	background-color: rgba(50,50,50,1);
+}
+
+.flexslider-text-container{
+	font-size: 0.9rem;
+	color: white;
+	font-weight: 100;
+}
+
+.flexslider-text-container span{
+	text-align: right;
+	right: 0.5rem;
+	bottom: 0;
+	position: absolute;
+	font-weight: 100;
+	color: rgba(255,255,255,0.5);
+}
+
+.flexslider-text-container span div, .flexslider-image-container span div{
+	font-size: 5rem;
+	display: inline;
+}
+
+.flexslider-image-container span{
+	text-align: right;
+	right: 0.5rem;
+	top: -1.5rem;
+	position: absolute;
+	font-weight: 100;
+	color: rgba(255,255,255,0.5);
+	display: none;
+}
+
+.flexslider-text{
+	color: white;
+}
+
+
+/*
+	======================================================================
+	M2 - MIDI
+	======================================================================
+*/
+
+#player-buttons-container{
+	min-height: 4rem;
+}
+
+#player-prev-button, #player-next-button, #player-play-button, #midi-vol-up-icon, #midi-vol-down-icon{
+	background-color: transparent;
+	border: none;
+	color: rgba(50,50,50,0.8);
+	outline: none;
+	-webkit-transition: all 0.15s ease-in;
+	-moz-transition: all 0.15s ease-in;
+	transition: all 0.15s ease-in;
+}
+
+#player-play-button{
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+#player-prev-button, #player-next-button{
+	font-size: 1.3rem;
+	cursor:pointer;
+}
+
+
+#player-prev-button:hover, #player-next-button:hover{
+	font-size: 1.5rem;
+}
+
+#player-play-button:hover{
+	font-size: 2.2rem;
+}
+
+.rangeslider,
+.rangeslider__fill {
+	border: none;
+	background-color: transparent;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-moz-border-radius: none;
+	-webkit-border-radius: none;
+	border-radius: none;
+}
+
+.rangeslider {
+	position:relative;
+}
+
+.rangeslider:after{
+	top:50%;
+	left:0;
+	right:0;
+	content:'';
+	width:98%;
+	height:3px;
+	margin-top:-2.5px;
+	border-radius:5px;
+	position:absolute;
+	background:rgba(45,45,45,0.8);
+}
+
+.rangeslider--horizontal{
+	width:100%;
+	height:28px;
+}
+
+.rangeslider--vertical{
+	width:3px;
+	min-height:50px;
+	max-height:100%;
+}
+
+.rangeslider__fill{
+	position:absolute;
+	background:rgba(150,150,150,0.8);
+	transition: background-color 0.3s;
+}
+
+.rangeslider--horizontal .rangeslider__fill{
+	top:0;
+	height:100%;
+}
+.rangeslider--vertical .rangeslider__fill{
+	bottom:0;
+	width:100%;
+}
+
+.rangeslider__fill,
+.rangeslider__handle{
+	z-index:1;
+}
+
+.rangeslider__handle {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-top: 18px;
+	position: absolute;
+	background-color: rgba(100,100,100,1);
+	transition: background-color 0.3s, width 0.3s, height 0.3s, margin 0.3s;
+}
+
+.rangeslider__handle:after {
+	content: "";
+	display: block;
+	width: 10px;
+	height: 10px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.rangeslider__handle:active, .rangeslider--active .rangeslider__handle, .rangeslider--active .rangeslider__fill {
+	/*background-image: none;*/
+	background:rgba(143,195,31,1);
+}
+
+.rangeslider__handle:active, .rangeslider--active .rangeslider__handle {
+	/*background-image: none;*/
+	background:rgba(143,195,31,1);
+	width: 15px;
+	height: 15px;
+	margin-top: 15px;
+}
+
+.rangeslider__handle:active .rangeslider__handle:after, .rangeslider--active .rangeslider__handle:active {
+	content: "";
+	display: block;
+	width: 18px;
+	height: 18px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.rangeslider--horizontal .rangeslider__fill{
+	top:50%;
+	height:3px;
+	margin-top:-2.5px;
+}
+
+/* MIDI RIGHT SIDE - playlist */
+#midi-category-container{
+	border-bottom: solid 1px rgba(255,255,255, 0.7);
+}
+
+.player-tracklist-container{
+	/* max-height: 10rem;
+	overflow: hidden; */
+}
+
+.nano { background: transparent; }
+
+#player-tracklist-container-scroller-desktop{
+	min-height: 40rem;
+	height: 100% !important;
+}
+
+#player-tracklist-container-scroller-mobile {
+	min-height: 25rem;
+}
+
+/* .nano-desktop{ background: transparent; } */
+
+.nano > .nano-content { /* padding: 10px; */ }
+.nano > .nano-pane   { background: rgba(100,100,100,0.2); }
+.nano > .nano-pane > .nano-slider { background: rgba(0,0,0,0.2); }
+
+.midi-category-button{
+	color: rgba(255,255,255,0.8);
+	background-color: rgba(100,100,150,0.5);
+	border: none;
+	outline: none;
+}
+
+.midi-category-button:focus, .player-track-button:focus, .player-track-button-desktop:focus, .player-tracklist-container:focus{
+	outline: none;
+}
+
+.player-track-button{
+	height: 55px;
+	padding-left: 1rem;
+	cursor:pointer;
+	font-size: 0.85rem;
+	font-weight: 100;
+	color: rgba(76,76,76,0.8); /*rgba(255,255,255,0.8);*/
+	background-color: rgba(143,195,31, 0.1); /*rgba(100,100,150,0.5);*/
+	border: none;
+	outline: none;
+	/*transition: background-color 0.15s ease-out;*/
+}
+
+.player-track-button span{
+	font-size: 0.85rem;
+    float: right;
+    right: 0;
+    padding-right: 15px;
+    position: absolute;
+}
+
+.player-track-button img{
+	max-height: 40px;
+	margin-right: 15px;
+	display: inline-block;
+}
+
+.mobile-playlist-title{
+	font-size: 0.875rem;
+	display: inline-block;
+	text-align: left;
+	font-weight: 550;
+}
+
+.mobile-playlist-title p{
+	font-weight: lighter;
+	text-align: left;
+	font-size: 0.55rem;
+	margin: 0;
+}
+
+/* Desktop Playlist Buttons */
+.player-track-button-desktop{
+	height: 70px;
+	padding-left: 2rem;
+	cursor:pointer;
+	font-size: 0.85rem;
+	font-weight: 100;
+	color: rgba(76,76,76,0.8); /*rgba(255,255,255,0.8);*/
+	background-color: rgba(143,195,31, 0.1); /*rgba(100,100,150,0.5);*/
+	border: none;
+	outline: none;
+	/*transition: background-color 0.15s ease-out;*/
+}
+
+.player-track-button-desktop img{
+	max-height: 40px;
+	margin-right: 15px;
+	display: inline-block;
+}
+
+.desktop-playlist-title{
+	display: inline-block;
+	text-align: left;
+	font-weight: 550;
+}
+
+.desktop-playlist-title p{
+	font-weight: lighter;
+	text-align: left;
+	font-size: 0.68rem;
+	margin: 0;
+}
+
+.player-track-button-desktop span{
+	font-size: 0.85rem;
+    float: right;
+    right: 0;
+    padding-right: 15px;
+    position: absolute;
+}
+
+
+
+.player-control-desktop-position{
+	position: fixed;
+	bottom: 2rem;
+	width: 19.5%;
+}
+
+@media only screen and (max-width: 1080px){
+	#player-thumbnail-desktop {
+		max-height: 10rem;
+	}
+
+	
+	/* Desktop Playlist Buttons */
+	.player-track-button-desktop{
+		font-size: 0.7rem;
+	}
+
+	.desktop-playlist-title p{
+		font-size: 0.55rem;
+	}
+
+	.player-track-button-desktop span{
+		font-size: 0.65rem;
+	}
+}
+
+@media only screen and (max-width: 970px){
+	
+	/* Desktop Playlist Buttons */
+	.player-track-button-desktop{
+		font-size: 0.6rem;
+	}
+
+	.desktop-playlist-title p{
+		font-size: 0.45rem;
+	}
+
+	.player-track-button-desktop span{
+		font-size: 0.55rem;
+	}
+}
+
+@media only screen and (max-width: 895px){
+	
+	/* Desktop Playlist Buttons */
+	.player-track-button-desktop{
+		font-size: 0.5rem;
+	}
+
+	.desktop-playlist-title p{
+		font-size: 0.35rem;
+	}
+}
+
+/* Bootstrap 4 - MD */
+@media only screen and (max-width: 767px){
+
+	html,body{
+		font-size: 0.875rem;
+	}
+
+	#landing-button-container-desktop {
+		display: none;
+	}
+
+	#landing-title-container {
+		/* top: 38%; */
+		position: fixed;
+		background-color: yellow;
+	}
+
+	#landing-title{
+		position: unset;
+	}
+
+	/* .landing-button {
+		padding-bottom: 3rem;
+		font-weight: lighter;
+	
+		color: white;
+	
+		height: 8rem;
+		line-height: 8rem;
+		font-size: 1.6rem;
+	
+		z-index: 5;
+		transition: all 0.25s ease-out;
+	} */
+
+	#mobile-flip-button{
+		height: 3rem;
+		line-height: 3rem;
+	}
+
+	/* #mobile-audio-flip{
+		display: inline;
+		bottom: 1.5rem;
+		position: fixed;
+	} */
+
+	#mobile-playlist {
+		display: inline;
+	}
+
+	.nano { background: transparent; max-height: 15rem; }
+
+	#desktop-playlist {
+		display: none;
+	}
+
+	#player-thumbnail-desktop{
+		display: none;
+	}
+
+	#player-thumbnail-mobile{
+		display: inline;
+		margin-top: 1rem;
+		max-height: 8rem;
+		margin-bottom: 0;
+
+		/* margin-top: 1rem;
+		margin-bottom: 1rem; */
+		/* float: left; */
+	}
+
+	#desktop-flip-button, #youtube-button-desktop{
+		display: none;
+	}
+
+	#youtube-button-mobile { 
+		/* cursor: default; */
+		display: unset;
+		position: absolute;
+		right: 0;
+		top: 14rem;
+	}
+	
+	#youtube-button-mobile i { 
+		font-size: 2rem;
+		color: red;
+	}
+	
+	#youtube-button-mobile span { 
+		font-size: 0.7rem;
+	}
+
+	.navigation-top{
+		top: 4%;
+	}
+
+	#title{
+		font-size: 2rem;
+	}
+
+	.row [class*='verticalDivider']:not(:last-child):after {
+		display: none;
+	}
+
+	.flexslider-image-container span{
+		display: inline;
+	}
+
+	.flexslider-text-container span{
+		display: none;
+	}
+
+	#navigation-bottom button{
+		font-size: 1.4rem;
+	}
+
+}
+
+@media only screen and (max-width: 767px) and (max-height: 765px) {
+	html,body{
+		min-height: 40rem;
+	}
+}
+
+
+
+@media only screen and (max-width: 767px) and (max-height: 620px) {
+	html,body{
+		font-size: 0.7rem;
+	}
+}
+
+@media only screen and (max-width: 767px) and (max-height: 400px) {
+	html,body{
+		font-size: 0.5rem;
+	}
+}
+
+/* MOBILE */
+@media only screen and (max-width: 576px){
+	html,body{
+		font-size: 0.72rem;
+	}
+}
+
+@media only screen and (max-width: 576px) and (max-height: 550px) {
+	html,body{
+		font-size: 0.6rem;
+	}
+}
+
+@media only screen and (max-width: 576px) and (max-height: 450px) {
+	html,body{
+		font-size: 0.5rem;
+	}
+}
+
+@media only screen and (max-width: 767) {
+	#player-thumbnail-mobile{
+		display: inline;
+		margin-top: 0;
+		max-height: 4rem;
+		/* margin-bottom: 1rem; */
+	}
+}
+
+@media only screen and (max-width: 375px) and (max-height: 667px) {
+	#player-thumbnail-mobile{
+		display: inline;
+		margin-top: 2rem;
+		max-height: 6rem;
+		/* margin-bottom: 1rem; */
+	}
+	#player-title-text {
+		line-height: 0.5rem;
+		margin-bottom: 1.2rem;
+		margin-top: 0;
+	}
+}
+
+@media only screen and (max-width: 320px) and (max-height: 568px) {
+	#player-thumbnail-mobile{
+		display: none;
+	}
+	#player-title-text {
+		margin-top: 3rem;
+	}
+
+	#back-button span {
+		display: block;
+		position: absolute;
+		top: 1rem;
+		right: 0;
+	}
+}

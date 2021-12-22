@@ -1,0 +1,200 @@
+/*
+	======================================================================
+	M2 - MIDI
+	======================================================================
+*/
+
+#midi-player-buttons-container{
+	min-height: 4rem;
+}
+
+#midi-prev-button, #midi-next-button, #midi-play-button, #midi-vol-up-icon, #midi-vol-down-icon{
+	background-color: transparent;
+	border: none;
+	color: rgba(50,50,50,0.8);
+	outline: none;
+	-webkit-transition: all 0.15s ease-in;
+	-moz-transition: all 0.15s ease-in;
+	transition: all 0.15s ease-in;
+}
+
+#midi-play-button{
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+#midi-prev-button, #midi-next-button{
+	font-size: 1.3rem;
+	cursor:pointer;
+}
+
+
+#midi-prev-button:hover, #midi-next-button:hover{
+	font-size: 1.5rem;
+}
+
+#midi-play-button:hover{
+	font-size: 2.2rem;
+}
+
+.rangeslider,
+.rangeslider__fill {
+	border: none;
+	background-color: transparent;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-moz-border-radius: none;
+	-webkit-border-radius: none;
+	border-radius: none;
+}
+
+.rangeslider {
+	position:relative;
+}
+
+.rangeslider:after{
+	top:50%;
+	left:0;
+	right:0;
+	content:'';
+	width:98%;
+	height:3px;
+	margin-top:-2.5px;
+	border-radius:5px;
+	position:absolute;
+	background:rgba(45,45,45,0.8);
+}
+
+.rangeslider--horizontal{
+	width:100%;
+	height:28px;
+}
+
+.rangeslider--vertical{
+	width:3px;
+	min-height:50px;
+	max-height:100%;
+}
+
+.rangeslider__fill{
+	position:absolute;
+	background:rgba(150,150,150,0.8);
+	transition: background-color 0.3s;
+}
+
+.rangeslider--horizontal .rangeslider__fill{
+	top:0;
+	height:100%;
+}
+.rangeslider--vertical .rangeslider__fill{
+	bottom:0;
+	width:100%;
+}
+
+.rangeslider__fill,
+.rangeslider__handle{
+	z-index:1;
+}
+
+.rangeslider__handle {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-top: 18px;
+	position: absolute;
+	background-color: rgba(100,100,100,1);
+	transition: background-color 0.3s, width 0.3s, height 0.3s, margin 0.3s;
+}
+
+.rangeslider__handle:after {
+	content: "";
+	display: block;
+	width: 10px;
+	height: 10px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.rangeslider__handle:active, .rangeslider--active .rangeslider__handle, .rangeslider--active .rangeslider__fill {
+	/*background-image: none;*/
+	background:rgba(143,195,31,1);
+}
+
+.rangeslider__handle:active, .rangeslider--active .rangeslider__handle {
+	/*background-image: none;*/
+	background:rgba(143,195,31,1);
+	width: 15px;
+	height: 15px;
+	margin-top: 15px;
+}
+
+.rangeslider__handle:active .rangeslider__handle:after, .rangeslider--active .rangeslider__handle:active {
+	content: "";
+	display: block;
+	width: 18px;
+	height: 18px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.rangeslider--horizontal .rangeslider__fill{
+	top:50%;
+	height:3px;
+	margin-top:-2.5px;
+}
+
+/* MIDI RIGHT SIDE - playlist */
+#midi-category-container{
+	border-bottom: solid 1px rgba(255,255,255, 0.7);
+}
+
+#midi-tracklist-container{
+	max-height: 10rem;
+	overflow: hidden;
+}
+
+.nano { background: transparent; min-height: 10rem; }
+/*.nano > .nano-content { padding: 10px; }*/
+.nano > .nano-pane   { background: rgba(100,100,100,0.2); }
+.nano > .nano-pane > .nano-slider { background: rgba(0,0,0,0.2); }
+
+.midi-category-button{
+	color: rgba(255,255,255,0.8);
+	background-color: rgba(100,100,150,0.5);
+	border: none;
+	outline: none;
+}
+
+.midi-category-button:focus, .midi-track-button:focus, #midi-tracklist-container:focus{
+	outline: none;
+}
+
+.midi-track-button{
+	cursor:pointer;
+	font-size: 0.85rem;
+	font-weight: 100;
+	color: rgba(76,76,76,0.8); /*rgba(255,255,255,0.8);*/
+	background-color: rgba(143,195,31, 0.1); /*rgba(100,100,150,0.5);*/
+	border: none;
+	outline: none;
+	/*transition: background-color 0.15s ease-out;*/
+}
+
+.midi-track-button span{
+	margin-top: 0.3rem;
+	font-size: 0.6rem;
+	float: right;
+	right: 0;
+}
