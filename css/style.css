@@ -79,7 +79,7 @@
 	/* height: 15rem;
 	line-height: 15rem; */
 	font-size: 5rem; /* 1.4rem; */
-	line-height: 5rem;
+	/* line-height: 5rem; */
 
 	z-index: 5;
 	opacity: 0;
@@ -95,25 +95,30 @@
 .landing-button {
 	cursor: pointer;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-	/* padding-bottom: 3rem; */
 	font-weight: bolder;
-
 	color: white;
 	text-align: center;
     display: inline-block;
-	/* height: 15rem;
-	line-height: 15rem; */
 	font-size: 5rem; /* 1.4rem; */
-	line-height: 5rem;
-
+	/* line-height: 5rem; */
 	z-index: 5;
 	transition: all 0.25s ease-out;
+
+	/* Part of the hover BG color change effect */
+	/* "to left" / "to right" - affects initial color */
+    background: linear-gradient(to left, black 50%, white 50%) right;
+    background-size: 200%;
 }
 
 .landing-button:hover {
-	font-size: 6rem;
-	opacity: 0.8;
+	font-size: 5.8rem;
+	
+	/* opacity: 0.8; */
 	/* line-height: 2.5rem; */
+
+	/* Part of the hover BG color change effect */
+	/* background-position: left;
+	color: black; */
 }
 
 #landing-title-container {
