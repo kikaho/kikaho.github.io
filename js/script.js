@@ -138,9 +138,9 @@ function init(){
 	*/
 	audio.addEventListener("timeupdate", function(){seekTimeUpdate();});
   	audio.addEventListener("ended", function(){switchTrack("next");})
-  
-  	audio2.addEventListener("timeupdate", function(){seekTimeUpdate();});
-  	audio2.addEventListener("ended", function(){switchTrack("next");})
+	
+	audio2.addEventListener("timeupdate", function(){seekTimeUpdate();});
+	audio2.addEventListener("ended", function(){switchTrack("next");})
 
 	playerButtonInit();
 	playerSliderInit();
@@ -690,12 +690,12 @@ audio.addEventListener('loadedmetadata', function() {
     $('#seek-slider').val('0').change();
 });
 
-audio.addEventListener('loadeddata', function() {
+audio.addEventListener('canplaythrough', function() {
 //   console.log("audio1 loadeddata - " + audio.readyState, { audio });
   audioReadyStateUpdate();
 });
 
-audio2.addEventListener('loadeddata', function() {
+audio2.addEventListener('canplaythrough', function() {
 //   console.log("audio2 loadeddata - " + audio2.readyState, { audio2 });
   audioReadyStateUpdate();
 });
@@ -758,8 +758,28 @@ function seekTimeUpdate(){
 }
 
 
+$('#player-thumbnail-desktop').click(() => {
+	debugFunc();
+})
+
+function debugFunc(){
+	console.log('DEBUG FUNC ', {
+		audio, audio2,
+		'audio.readyState':audio.readyState,
+		'audio2.readyState':audio2.readyState,
+		'audio.paused':audio.paused,
+		'audio2.paused':audio2.paused,
+	})
+}
 
 function audioReadyStateUpdate(){
+	console.log('AUDIO STATUS UPDATE', {
+		audio,
+		audio2,
+		'audio.readyState':audio.readyState,
+		'audio2.readyState':audio2.readyState,
+		
+	});
 	if(audio.readyState === 4 && audio2.readyState === 4 && shouldAutoPlay && audio.paused && audio2.paused){
 		if(isTablet){
 			audio.play();
