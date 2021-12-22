@@ -829,7 +829,7 @@ function loadedAudio() {
 	// we keep track of the loaded files vs the requested files
 	pLoaded++;
 	if (pLoaded == pPlaylist.length){
-		console.log('ALL AUDIO FILE LOADED', { pLoaded });
+		// console.log('ALL AUDIO FILE LOADED', { pLoaded });
 	}
 }
 
