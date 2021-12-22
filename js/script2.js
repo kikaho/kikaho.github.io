@@ -17,6 +17,7 @@ function init2(){
 	    } catch (ex) {}
 	}
 
+	preloadMidiTracks();
 	reInitTrackMidi(false);
 
 	/*// Fade out initial white screen
@@ -174,6 +175,19 @@ function init2(){
 	======================================================================
 */
 
+function preloadMidiTracks(){
+	midiPlaylist.forEach(track => {
+		midiAudio.pause();
+		midiAudio.src = 'audio/midi/' + track + midiExtension;
+		midiAudio.load();
+		midiAudio.pause();
+		console.log('PRELOAD MIDI', {
+			track,
+			audio
+		});
+	});
+}
+
 // Default midiExtension = mp3
 var midiExtension = ".mp3";
 var midiAgent = navigator.userAgent.toLowerCase();
@@ -195,21 +209,22 @@ var midiTrackTitle = [
 
 /* Track compose date */
 var midiTrackDate = ["September 4, 2015", "March 5th, 2017", "April 15, 2010", "December 4, 2012", "May 19, 2015",
- "Unknown Date", "Febuary 29, 2016", "September 27, 2014", "January 27, 2012", "July 17, 2015", "October 3, 2012"];
+"Unknown Date", "Febuary 29, 2016", "September 27, 2014", "January 27, 2012", "July 17, 2015", "October 3, 2012"];
 
 /* Track description */
 var midiTrackDescription = [
-"Welcome back, you did great.", 
-"This is an ongoing draft that I've been working on since March of 2017 (and I still can't finish it).", 
-"Instrumental solo part of one of my oldest piece.", 
-'Comedy bar fight, silly argument turns into a crazy brawl, camera zoom out of the bar, pans up to the moon.\n*sigh* "yare yare daze"', 
-" ", 
-"This is how I imagined being a guitar sherd master would feel like when I first started learning guitar.", 
-" ", 
-" ", 
-" ", 
-"Zzz", 
-"Okay bye."];
+	"Welcome back, you did great.", 
+	"This is an ongoing draft that I've been working on since March of 2017 (and I still can't finish it).", 
+	"Instrumental solo part of one of my oldest piece.", 
+	'Comedy bar fight, silly argument turns into a crazy brawl, camera zoom out of the bar, pans up to the moon.\n*sigh* "yare yare daze"', 
+	" ", 
+	"This is how I imagined being a guitar sherd master would feel like when I first started learning guitar.", 
+	" ", 
+	" ", 
+	" ", 
+	"Zzz", 
+	"Okay bye."
+];
 
 var midiAudio = new Audio();
 var midiCurrentPlaylistIndex = 0;
@@ -222,8 +237,8 @@ midiAudio.autoplay = false;
 midiAudio.volume = 0.8;
 midiAudio.load();
 midiAudio.addEventListener('loadedmetadata', function() {
-    $('#midi-end-time').text(secondToStringMidi(midiAudio.duration));
-    $('#seek-slider-midi').val('0').change();
+	$('#midi-end-time').text(secondToStringMidi(midiAudio.duration));
+	$('#seek-slider-midi').val('0').change();
 });
 
 function midiSwitchTrack(direction){
