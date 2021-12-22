@@ -809,7 +809,8 @@ function preloadAudioTracks(){
 
 	playlist.forEach(track => {
 		// Preload track images while we're at it, for smoother transition
-		document.getElementById("image-preloader").innerHTML += "<img src='images/" + track + ".png'></img>";
+		$('.player-thumbnail').attr('src', 'images/' + track + '.png');
+		// document.getElementById("image-preloader").innerHTML += "<img src='images/" + track + ".png'></img>";
 	});
 }
 function preloadAudio(track) {
