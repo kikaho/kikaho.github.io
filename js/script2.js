@@ -195,16 +195,16 @@ var midiTrackTitle = [
 
 /* Track compose date */
 var midiTrackDate = ["September 4, 2015", "March 5th, 2017", "April 15, 2010", "December 4, 2012", "May 19, 2015",
- "Unknown", "Febuary 29, 2016", "September 27, 2014", "January 27, 2012", "July 17, 2015", "October 3, 2012"];
+ "Unknown Date", "Febuary 29, 2016", "September 27, 2014", "January 27, 2012", "July 17, 2015", "October 3, 2012"];
 
 /* Track description */
 var midiTrackDescription = [
 "Welcome back, you did great.", 
-"This is an ongoing draft that I've been working on since March of 2017.", 
+"This is an ongoing draft that I've been working on since March of 2017 (and I still can't finish it).", 
 "Instrumental solo part of one of my oldest piece.", 
-"Hold my beer.", 
+'Comedy bar fight, silly argument turns into a crazy brawl, camera zoom out of the bar, pans up to the moon.\n*sigh* "yare yare daze"', 
 " ", 
-"When I first started learning guitar, this is what I imagined how being a guitar sherd master would feel like.", 
+"This is how I imagined being a guitar sherd master would feel like when I first started learning guitar.", 
 " ", 
 " ", 
 " ", 

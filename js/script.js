@@ -37,6 +37,8 @@ const playerInfoFadeOutTime = 200;
 const fadeOutTime = 220;
 const fadeInTime = 400;
 
+let pageLoaded = false;
+
 /* Initialize some items, called on page load */
 function init(){
 
@@ -95,8 +97,8 @@ function init(){
 
 	// Change things according to screen size
 	$(window).on('resize', _.debounce(function() {
-    //console.log("Debouncing");
-    $('#volume-slider').val(audio.volume * 100).change();
+		//console.log("Debouncing");
+		$('#volume-slider').val(audio.volume * 100).change();
 		$('#seek-slider').rangeslider('update', true);
 	}, 100));
 
@@ -110,12 +112,10 @@ function init(){
 	// Button: BACK | X
 	// $('#back-button-container').on("click",function(){
 	$('#back-button').on("click",function(){
-		console.log('SWITCH BACK')
       	switchPage(0);
 	});
 
 	$('#back-button-midi').on("click",function(){
-		console.log('SWITCH BACK')
     	switchPage(0);
 	});
 
@@ -413,17 +413,31 @@ function playerSliderInit(){
 	})
 }
 
+// This is a hack for telling whether or not an image loaded
+// TODO (maybe): add a CSS backup background for when image fails to load.
+function bgImageOnLoadCallback(param){
+	// console.log('bgImageOnLoadCallback()', { param, pageLoaded });
+	pageLoaded = true;
+	// Fade out initial white screen
+	$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
+		$('#initial-screen').hide();
+	});
+}
+
 $(document).ready(function(){
 
 	//init();
 	$.when(init()).then(function() {
-		init2()
-		// Fade out initial white screen
+		init2(); // NOTE: this is from script2.js
+		// Fade out initial white screen, if BG image somehow fails
 		setTimeout(function(){
-			$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
-				$('#initial-screen').hide();
-			});
-		}, 300);
+			if(!pageLoaded){
+				console.log('BG IMAGE LOAD TIMEOUT');
+				$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
+					$('#initial-screen').hide();
+				});
+			}
+		}, 8000);
 	});
 
 	// Load background video for landing page
@@ -652,7 +666,8 @@ var trackDescription = [
 	"LiSA / 魔法科高校の劣等生",
 	"Yui / 鋼の錬金術師",
 	"MADKID / 盾の勇者の成り上がり",
-	"周湯豪", "Hoobastank"
+	"周湯豪\nA friend casually asked me to play this song, I casually added a guitar solo, and it ends up become one of my favorites.",
+	"Hoobastank"
 ];
 
 var audio = new Audio();
