@@ -757,29 +757,7 @@ function seekTimeUpdate(){
 	}
 }
 
-
-$('#player-thumbnail-desktop').click(() => {
-	debugFunc();
-})
-
-function debugFunc(){
-	console.log('DEBUG FUNC ', {
-		audio, audio2,
-		'audio.readyState':audio.readyState,
-		'audio2.readyState':audio2.readyState,
-		'audio.paused':audio.paused,
-		'audio2.paused':audio2.paused,
-	})
-}
-
 function audioReadyStateUpdate(){
-	console.log('AUDIO STATUS UPDATE', {
-		audio,
-		audio2,
-		'audio.readyState':audio.readyState,
-		'audio2.readyState':audio2.readyState,
-		
-	});
 	if(audio.readyState === 4 && audio2.readyState === 4 && shouldAutoPlay && audio.paused && audio2.paused){
 		if(isTablet){
 			audio.play();
@@ -982,6 +960,7 @@ function secondToString(input){
 
 /* Stop the audio and reset the current play time */
 function stopAudio(){
+	shouldAutoPlay = false;
 	audio.pause();
 	audio.currentTime = 0;
 	audio2.pause();

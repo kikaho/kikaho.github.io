@@ -221,7 +221,7 @@ midiAudio.loop = false;
 midiAudio.autoplay = false;
 midiAudio.volume = 0.8;
 midiAudio.load();
-midiAudio.addEventListener('loadedmetadata', function() {
+midiAudio.addEventListener('canplaythrough', function() {
 	$('#midi-end-time').text(secondToStringMidi(midiAudio.duration));
 	$('#seek-slider-midi').val('0').change();
 });
