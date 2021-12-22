@@ -434,7 +434,7 @@ $(document).ready(function(){
 		// Fade out initial white screen, if BG image somehow fails
 		setTimeout(function(){
 			if(!pageLoaded){
-				console.log('BG IMAGE LOAD TIMEOUT');
+				console.log('BG IMAGE LOAD TIMEOUT', { pageLoaded });
 				$('#loading-text').hide();
 				$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
 					$('#initial-screen').hide();
