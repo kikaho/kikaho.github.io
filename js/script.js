@@ -415,16 +415,18 @@ function playerSliderInit(){
 
 // This is a hack for telling whether or not an image loaded
 // TODO (maybe): add a CSS backup background for when image fails to load.
-function bgImageOnLoadCallback(param){
-	// console.log('bgImageOnLoadCallback()', { param, pageLoaded });
-	pageLoaded = true;
-	// Fade out initial white screen
-	$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
-		$('#initial-screen').hide();
-	});
-}
+// function bgImageOnLoadCallback(param){
+// 	// console.log('bgImageOnLoadCallback()', { param, pageLoaded });
+// 	pageLoaded = true;
+// 	// Fade out initial white screen
+// 	$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
+// 		$('#initial-screen').hide();
+// 	});
+// }
 
 $(document).ready(function(){
+	// "Loading" text appears if the background image took more than 1 sec to load
+	$('#loading-text').animate({opacity: 1}, 1000);
 
 	//init();
 	$.when(init()).then(function() {
@@ -433,6 +435,7 @@ $(document).ready(function(){
 		setTimeout(function(){
 			if(!pageLoaded){
 				console.log('BG IMAGE LOAD TIMEOUT');
+				$('#loading-text').hide();
 				$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
 					$('#initial-screen').hide();
 				});

@@ -12,6 +12,22 @@
 		gtag('config', 'G-0NPYJB79ZL');
 	</script>
 
+	<script>
+		// I place this function here because there's a chance that the image will load before script.js was even imported, which would triggers an error.
+
+		// This is a hack for telling whether or not an image loaded.
+		// TODO (maybe): add a CSS backup background for when image fails to load.
+		function bgImageOnLoadCallback(param){
+			console.log('bgImageOnLoadCallback()', { param, pageLoaded });
+			pageLoaded = true;
+			// Fade out initial white screen
+			$('#loading-text').hide();
+			$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
+				$('#initial-screen').hide();
+			});
+		}
+	</script>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
@@ -52,7 +68,11 @@
 </head>
 <body>
 
-	<div id="initial-screen"></div>
+	<div id="initial-screen">
+		<div id="loading-text">
+			Loading
+		</div>
+	</div>
 
 	<!-- Title + back button -->
 	<!-- <div class="navigation-top container-fluid fixed-top"> 
