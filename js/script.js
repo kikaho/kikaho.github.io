@@ -37,7 +37,6 @@ const playerInfoFadeOutTime = 200;
 const fadeOutTime = 220;
 const fadeInTime = 400;
 
-let pageLoaded = false;
 
 /* Initialize some items, called on page load */
 function init(){
@@ -88,8 +87,8 @@ function init(){
 	$('#back-button').css( "opacity", "0" );
 	$('#back-button').css( "display", "none" );
 
+	preloadImages();
 	preloadAudioTracks();
-
 	reInitTrack(false);
 
 	/*// Fade out initial white screen
@@ -792,11 +791,15 @@ function preloadAudioTracks(){
   		audio2.load();
 		audio.pause();
 		audio2.pause();
-		console.log('PRELOAD TRACKS', {
-			track,
-			audio,
-			audio2
-		});
+
+		// Preload track images while we're at it, for smoother transition
+		document.getElementById("image-preloader").innerHTML += "<img src='images/" + track + ".png'></img>";
+		// console.log('PRELOAD TRACKS', {
+		// 	track,
+		// 	audio,
+		// 	audio2,
+		// 	'IMG PRELOAD': document.getElementById("image-preloader")
+		// });
 	});
 }
 
@@ -923,7 +926,7 @@ function secondToString(input){
 	var min = Math.floor(input / 60);
 	var sec = Math.floor(input - min * 60);
 	if(sec < 10){sec = "0" + sec;}
-	
+
 	return (min + ' : ' + sec);
 }
 

@@ -181,10 +181,10 @@ function preloadMidiTracks(){
 		midiAudio.src = 'audio/midi/' + track + midiExtension;
 		midiAudio.load();
 		midiAudio.pause();
-		console.log('PRELOAD MIDI', {
-			track,
-			audio
-		});
+		// console.log('PRELOAD MIDI', {
+		// 	track,
+		// 	audio
+		// });
 	});
 }
 

@@ -15,6 +15,7 @@
 	<script>
 		// I place this function here because there's a chance that the image will load before script.js was even imported, which would triggers an error.
 
+		let pageLoaded = false;
 		// This is a hack for telling whether or not an image loaded.
 		// TODO (maybe): add a CSS backup background for when image fails to load.
 		function bgImageOnLoadCallback(param){
@@ -74,6 +75,8 @@
 			Loading
 		</div>
 	</div>
+	
+	<div id="image-preloader" style="display: none;"></div>
 
 	<!-- Title + back button -->
 	<!-- <div class="navigation-top container-fluid fixed-top"> 
