@@ -17,7 +17,6 @@ function init2(){
 	    } catch (ex) {}
 	}
 
-	preloadMidiTracks();
 	reInitTrackMidi(false);
 
 	/*// Fade out initial white screen
@@ -174,20 +173,6 @@ function init2(){
 		MIDI PLAYER CONTROL
 	======================================================================
 */
-
-function preloadMidiTracks(){
-	midiPlaylist.forEach(track => {
-		midiAudio.pause();
-		midiAudio.src = 'audio/midi/' + track + midiExtension;
-		midiAudio.load();
-		midiAudio.pause();
-		// console.log('PRELOAD MIDI', {
-		// 	track,
-		// 	audio
-		// });
-	});
-}
-
 // Default midiExtension = mp3
 var midiExtension = ".mp3";
 var midiAgent = navigator.userAgent.toLowerCase();

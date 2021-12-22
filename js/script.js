@@ -683,6 +683,7 @@ audio.src = 'audio/' + playlist[currentPlaylistIndex] + extension;
 audio.controls = true;
 audio.loop = false;
 audio.autoplay = false;
+audio.preload = "auto";
 audio.load();
 audio.addEventListener('loadedmetadata', function() {
     $('#player-end-time').text(secondToString(audio.duration));
@@ -690,19 +691,20 @@ audio.addEventListener('loadedmetadata', function() {
 });
 
 audio.addEventListener('loadeddata', function() {
-//   console.log("audio 1 loaded data listener - " + audio.readyState);
+//   console.log("audio1 loadeddata - " + audio.readyState, { audio });
   audioReadyStateUpdate();
 });
 
 audio2.addEventListener('loadeddata', function() {
-//   console.log("audio 2 loaded data listener - " + audio2.readyState);
+//   console.log("audio2 loadeddata - " + audio2.readyState, { audio2 });
   audioReadyStateUpdate();
 });
 
-audio.src = 'audio/' + playlist[currentPlaylistIndex] + '-n' + extension;
+audio2.src = 'audio/' + playlist[currentPlaylistIndex] + '-n' + extension;
 audio2.controls = true;
 audio2.loop = false;
 audio2.autoplay = false;
+audio2.preload = "auto";
 audio2.load();
 
 if(isTablet){
@@ -756,16 +758,17 @@ function seekTimeUpdate(){
 }
 
 
+
 function audioReadyStateUpdate(){
-  if(audio.readyState === 4 && audio2.readyState === 4 && shouldAutoPlay && audio.paused && audio2.paused){
-    if(isTablet){
-      audio.play();
-    }
-    else {
-      audio.play();
-      audio2.play();
-    }
-  }
+	if(audio.readyState === 4 && audio2.readyState === 4 && shouldAutoPlay && audio.paused && audio2.paused){
+		if(isTablet){
+			audio.play();
+		}
+		else {
+			audio.play();
+			audio2.play();
+		}
+	}
 }
 
 var shouldAutoPlay = false;
@@ -780,26 +783,54 @@ var shouldAutoPlay = false;
 // 	$('.youtube-button').attr("href", trackLink[currentPlaylistIndex]); //.replace(trackLink[currentPlaylistIndex]);
 // });
 
-function preloadAudioTracks(){
-	playlist.forEach(track => {
-		audio.pause();
-		audio2.pause();
-		audio.src = 'audio/' + track + extension;
-		audio2.src = 'audio/' + track + '-n' + extension;
-		audio.load();
-  		audio2.load();
-		audio.pause();
-		audio2.pause();
 
+// REFERENCE: https://stackoverflow.com/questions/31060642/preload-multiple-audio-files
+var pPlaylist = [
+	"01towerofgod", "02homura", "03gurenge", 
+	"04dejavu", "05rezero", "06stb", 
+	"07steinsgate", "08kaguyasama", "09kemono", "10rezeros2",
+	"11kakumei-1", "12kakumei-2", "13mahouka",
+	"14fma", "15shield",
+	"16sdfs", "17thereason",
+
+	"01towerofgod-n", "02homura-n", "03gurenge-n", 
+	"04dejavu-n", "05rezero-n", "06stb-n", 
+	"07steinsgate-n", "08kaguyasama-n", "09kemono-n", "10rezeros2-n",
+	"11kakumei-1-n", "12kakumei-2-n", "13mahouka-n",
+	"14fma-n", "15shield-n",
+	"16sdfs-n", "17thereason-n",
+
+	// Skip these: lower priority compared to the above
+	// "midi/01", "midi/02", "midi/03", "midi/04", "midi/05", "midi/06", "midi/07", "midi/08", "midi/09", "midi/10", "midi/11"
+];
+function preloadAudioTracks(){
+	// we start preloading all the audio files
+	for (var i in pPlaylist) {
+		preloadAudio(pPlaylist[i]);
+	}
+
+	playlist.forEach(track => {
 		// Preload track images while we're at it, for smoother transition
 		document.getElementById("image-preloader").innerHTML += "<img src='images/" + track + ".png'></img>";
-		// console.log('PRELOAD TRACKS', {
-		// 	track,
-		// 	audio,
-		// 	audio2,
-		// 	'IMG PRELOAD': document.getElementById("image-preloader")
-		// });
 	});
+}
+function preloadAudio(track) {
+	// var audio = new Audio();
+	let pAudio = new Audio();
+	// once this file loads, it will call loadedAudio()
+	// the file will be kept by the browser as cache
+	pAudio.addEventListener('canplaythrough', loadedAudio, false);
+	pAudio.src = 'audio/' + track + '.mp3';
+	pAudio.load();
+}
+var pLoaded = 0;
+function loadedAudio() {
+	// this will be called every time an audio file is loaded
+	// we keep track of the loaded files vs the requested files
+	pLoaded++;
+	if (pLoaded == pPlaylist.length){
+		console.log('ALL AUDIO FILE LOADED', { pLoaded });
+	}
 }
 
 function reInitTrack(autoPlay){
