@@ -1546,14 +1546,23 @@ html,body{
 @media only screen and (max-width: 375px) and (max-height: 667px) {
 	#player-thumbnail-mobile{
 		display: inline;
-		margin-top: 2rem;
+		margin-top: 1rem;
 		max-height: 6rem;
+		margin-bottom: 1rem;
 		/* margin-bottom: 1rem; */
 	}
 	#player-title-text {
 		line-height: 0.5rem;
 		margin-bottom: 1.2rem;
 		margin-top: 0;
+		font-size: 1.4rem;
+	}
+	#back-button{
+		margin-top: 1.5rem;
+	}
+
+	#player-tracklist-container-scroller-mobile {
+		min-height: 20rem;
 	}
 }
 
@@ -1562,7 +1571,7 @@ html,body{
 		display: none;
 	}
 	#player-title-text {
-		margin-top: 3rem;
+		margin-top: 5rem;
 	}
 
 	#back-button span {
@@ -1570,5 +1579,8 @@ html,body{
 		position: absolute;
 		top: 1rem;
 		right: 0;
+	}
+	#player-tracklist-container-scroller-mobile {
+		min-height: 17.5rem;
 	}
 }
