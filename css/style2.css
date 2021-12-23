@@ -161,8 +161,8 @@
 }
 
 #midi-tracklist-container{
-	max-height: 10rem;
-	overflow: hidden;
+	/* max-height: 10rem; */
+	/* overflow: hidden; */
 }
 
 .nano { background: transparent; min-height: 10rem; }
