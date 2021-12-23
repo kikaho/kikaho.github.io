@@ -648,8 +648,8 @@ var trackLink = [
 /* Track description */
 var trackDescription = [
 	"Stray Kids / Tower of God",
-	"Lisa / 劇場版 鬼滅の刃 無限列車編",
-	"Lisa / 鬼滅の刃",
+	"LiSA / 劇場版 鬼滅の刃 無限列車編",
+	"LiSA / 鬼滅の刃",
 	"Dave Rodgers / 頭文字 D",
 	"MYTH&ROID / Re：ゼロから始める異世界生活",
 	"岸田教団&THE明星ロケッツ / ストライク・ザ・ブラッド",
