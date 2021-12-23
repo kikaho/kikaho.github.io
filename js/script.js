@@ -156,30 +156,30 @@ function removeHoverEffectIfTouchEnabled(){
             || navigator.msMaxTouchPoints > 0;
 
 	if (touch) { // remove all :hover stylesheets
-    try { // prevent exception on browsers not supporting DOM styleSheets properly
-      for (var si in document.styleSheets) {
-        var styleSheet = document.styleSheets[si];
-        if (!styleSheet.rules) continue;
+		isTablet = true;
+		try { // prevent exception on browsers not supporting DOM styleSheets properly
+			for (var si in document.styleSheets) {
+				var styleSheet = document.styleSheets[si];
+				if (!styleSheet.rules) continue;
 
-        for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
-          if (!styleSheet.rules[ri].selectorText) continue;
+				for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+					if (!styleSheet.rules[ri].selectorText) continue;
 
-          if (styleSheet.rules[ri].selectorText.match(':hover')) {
-            styleSheet.deleteRule(ri);
-          }
-        }
-      }
-      // Disable volume control slider in midi player since sound volume can't be changed programmatically in mobile device 
-      $('#volume-slider').prop("disabled", true);
-      $('#midi-vol-down-icon').css('opacity', '0.5');
-      $('#midi-vol-up-icon').css('opacity', '0.5');
-    } catch (ex) {}
+					if (styleSheet.rules[ri].selectorText.match(':hover')) {
+						styleSheet.deleteRule(ri);
+					}
+				}
+			}
+			// Disable volume control slider in midi player since sound volume can't be changed programmatically in mobile device 
+			$('#volume-slider').prop("disabled", true);
+			$('#midi-vol-down-icon').css('opacity', '0.5');
+			$('#midi-vol-up-icon').css('opacity', '0.5');
+		} catch (ex) {}
 	}
 
 }
 
 function playerButtonInit(){
-	
 	/* Midi playlist's song button */
 	$('.player-track-button').click(function(){
 		var thisTarget = $(this).attr('track-id');
@@ -281,10 +281,7 @@ function playerButtonInit(){
 				// G is playing
 				audio2.currentTime = audio.currentTime;
 				audio2.play();
-				setTimeout(function(){
-					audio.pause();
-				}, 100);
-				
+				audio.pause();
 				activeAudioTrack = 1;
 
 				// console.log("IS TABLET - IF");
@@ -293,17 +290,12 @@ function playerButtonInit(){
 					border: '1px solid #4C4C4C'
 				}, 500);
 				$('.audio-flip-button').html('GUITAR OFF');
-
-
-
-				///$('.slick').animate({opacity:'0'}, fadeOutTime, 'swing', function(){
+				$('.audio-flip-button').css('opacity', '0.5');
 			} else {
 				// N is playing
 				audio.currentTime = audio2.currentTime;
 				audio.play();
-				setTimeout(function(){
-					audio2.pause();
-				}, 100);
+				audio2.pause();
 				activeAudioTrack = 0;
 
 				// console.log("IS TABLET - ELSE");
@@ -312,6 +304,7 @@ function playerButtonInit(){
 					border: '1px solid #8fc31f'
 				}, 500);
 				$('.audio-flip-button').html('GUITAR ON');
+				$('.audio-flip-button').css('opacity', '1');
 			}
 		} else {
 			// NOT A TABLET
@@ -858,6 +851,9 @@ function reInitTrack(autoPlay){
 	if(!isTablet){
 		audio.volume = 1;
 		audio2.volume = 0;
+	} else {
+		audio.volume = 1;
+		audio2.volume = 1;
 	}
 
 	$('#seek-slider').val(0).change();
