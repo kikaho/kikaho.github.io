@@ -281,9 +281,7 @@ function playerButtonInit(){
 				// G is playing
 				audio2.currentTime = audio.currentTime;
 				audio2.play();
-				setTimeout(() => {
-					audio.pause();
-				}, 100);
+				audio.pause();
 				activeAudioTrack = 1;
 
 				// console.log("IS TABLET - IF");
@@ -297,9 +295,7 @@ function playerButtonInit(){
 				// N is playing
 				audio.currentTime = audio2.currentTime;
 				audio.play();
-				setTimeout(() => {
-					audio2.pause();
-				}, 100);
+				audio2.pause();
 				activeAudioTrack = 0;
 
 				// console.log("IS TABLET - ELSE");
