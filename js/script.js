@@ -87,7 +87,7 @@ function init(){
 	$('#back-button').css( "opacity", "0" );
 	$('#back-button').css( "display", "none" );
 
-	preloadAudioTracks();
+	// preloadAudioTracks();
 	reInitTrack(false);
 
 	/*// Fade out initial white screen
@@ -776,7 +776,7 @@ var shouldAutoPlay = false;
 
 
 // REFERENCE: https://stackoverflow.com/questions/31060642/preload-multiple-audio-files
-var pPlaylist = [
+/* var pPlaylist = [
 	"01towerofgod", "02homura", "03gurenge", 
 	"04dejavu", "05rezero", "06stb", 
 	"07steinsgate", "08kaguyasama", "09kemono", "10rezeros2",
@@ -823,7 +823,7 @@ function loadedAudio() {
 	if (pLoaded == pPlaylist.length){
 		// console.log('ALL AUDIO FILE LOADED', { pLoaded });
 	}
-}
+} */
 
 function reInitTrack(autoPlay){
 	audio.pause();
