@@ -4,6 +4,21 @@
 	======================================================================
 */
 
+#audio-loading-text-midi{
+	display: none;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+    left: 5%;
+	text-align: center;
+    width: 90%;
+	z-index: 500;
+    font-weight: lighter;
+    font-size: 5rem;
+	box-shadow: 4px 4px 7px 1px #bababa;
+  	animation: wiggle 0.5s infinite alternate;
+}
+
 #midi-player-buttons-container{
 	min-height: 4rem;
 }
@@ -197,4 +212,11 @@
 	font-size: 0.6rem;
 	float: right;
 	right: 0;
+}
+
+@media only screen and (max-width: 1000px){
+	#audio-loading-text-midi{
+		font-size: 3rem;
+	}
+	
 }

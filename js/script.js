@@ -3,9 +3,10 @@
 
 	This was modified from one of my college projects from years ago.
 	There's bunch of unused code and weird decision making
-	but ain't nobody got time to refactor everything so judge all you want lmfao
+	but ain't nobody got time to refactor everything so judge all you want lmao
 */
 
+audioLoading = false;
 
 /* To identify current page type and prevent typo */
 var currentPageIndex = 0;
@@ -112,10 +113,12 @@ function init(){
 	// Button: BACK | X
 	// $('#back-button-container').on("click",function(){
 	$('#back-button').on("click",function(){
+		stopAudio();
       	switchPage(0);
 	});
 
 	$('#back-button-midi').on("click",function(){
+		stopAudioMidi(); // From script2.js
     	switchPage(0);
 	});
 
@@ -520,9 +523,6 @@ function switchPage(targetPageIndex){
 			// Destroy nanoscroller plugin
 			// Placed outside of animation because currentPageType and targetPageType will already be the same after animation delay
 			if(targetPageIndex === 0){
-				//console.log("Destroying nanoscroller");
-				stopAudio();
-	
 				// Destroy after 300 miliseconds so that the user won't see it destroying before the slide faded out
 				setTimeout(function(){
 					$(".nano").nanoScroller({ destroy: true });
@@ -752,6 +752,11 @@ function seekTimeUpdate(){
 
 function audioReadyStateUpdate(){
 	if(audio.readyState === 4 && audio2.readyState === 4 && shouldAutoPlay && audio.paused && audio2.paused){
+		audioLoading = false;
+		$('#audio-loading-text').stop();
+		$('#audio-loading-text').animate({opacity:'0'}, 300, 'swing', function(){
+			$('#audio-loading-text').hide();
+		});
 		if(isTablet){
 			audio.play();
 		}
@@ -759,6 +764,8 @@ function audioReadyStateUpdate(){
 			audio.play();
 			audio2.play();
 		}
+	} else {
+		audioLoading = true;
 	}
 }
 
@@ -826,6 +833,10 @@ function loadedAudio() {
 } */
 
 function reInitTrack(autoPlay){
+	if(autoPlay){
+		$('#audio-loading-text').show();
+		$('#audio-loading-text').animate({opacity:'1'}, 200);
+	}
 	audio.pause();
 	audio2.pause();
 	audio.src = 'audio/' + playlist[currentPlaylistIndex] + extension;

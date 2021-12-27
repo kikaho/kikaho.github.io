@@ -1,4 +1,4 @@
-
+shouldAutoPlayMidi = false;
 
 /* Midi stuff */
 function init2(){
@@ -222,6 +222,15 @@ midiAudio.autoplay = false;
 midiAudio.volume = 0.8;
 midiAudio.load();
 midiAudio.addEventListener('canplaythrough', function() {
+	if(shouldAutoPlayMidi){
+		midiAudio.play();
+	}
+	$('#audio-loading-text-midi').stop();
+	$('#audio-loading-text-midi').animate({opacity:'0'}, 300, 'swing', function(){
+		$('#audio-loading-text-midi').hide();
+	});
+
+	$('#midi-play-button').html('<i class="fa fa-pause" aria-hidden="true"></i>');
 	$('#midi-end-time').text(secondToStringMidi(midiAudio.duration));
 	$('#seek-slider-midi').val('0').change();
 });
@@ -265,21 +274,19 @@ function seekTimeUpdateMidi(){
 }
 
 function reInitTrackMidi(autoPlay){
+	if(autoPlay === true){
+		shouldAutoPlayMidi = true;
+		$('#audio-loading-text-midi').show();
+		$('#audio-loading-text-midi').animate({opacity:'1'}, 200);
+	} else {
+		shouldAutoPlayMidi = false;
+		$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
+	}
 	midiAudio.pause();
 	midiAudio.src = 'audio/midi/' + midiPlaylist[midiCurrentPlaylistIndex] + midiExtension;
 	midiAudio.load();
 	$('#seek-slider-midi').val(0).change();
 
-	if(autoPlay === false){
-		$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
-	}
-	else if(autoPlay === true){
-		midiAudio.play();
-		/*midiAudio.onloadedmetadata = function() {
-		    midiAudio.play();
-		};*/
-		$('#midi-play-button').html('<i class="fa fa-pause" aria-hidden="true"></i>');
-	}
 
 	$('#midi-current-time').text(secondToStringMidi(midiAudio.currentTime));
 	$('#midi-title-text').html(midiTrackTitle[midiCurrentPlaylistIndex]);
@@ -330,6 +337,7 @@ function secondToStringMidi(input){
 
 /* Stop the audio and reset the current play time */
 function stopAudioMidi(){
+	shouldAutoPlayMidi = false;
 	midiAudio.pause();
 	midiAudio.currentTime = 0;
 	$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
