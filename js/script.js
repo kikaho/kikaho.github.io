@@ -608,7 +608,7 @@ var trackArtist = [
 
 // I think...this is more efficient than to load each audio track just to look for its duration?
 var trackDuration = [
-	"0:28", "0:50", "0:30", 
+	"0:28", "0:49", "0:30", 
 	"0:20", "0:29", "0:43",
 	"0:44", "0:22", "0:30", "0:24",
 	"0:33", "0:27", "0:26",
