@@ -1,9 +1,9 @@
 /* 
-	YOOOOO WHY MUST YOU PEEK INTO MY GARBAGE CODE 👀
+	YOOOOO WHY YOU PEEK INTO MY GARBAGE CODE 👀
 
 	This was modified from one of my college projects from years ago.
 	There's bunch of unused code and weird decision making
-	but ain't nobody got time to refactor everything so judge all you want lmao
+	but ain't nobody got time to refactor everything so it is what it is
 */
 
 audioLoading = false;
@@ -608,11 +608,11 @@ var trackArtist = [
 
 // I think...this is more efficient than to load each audio track just to look for its duration?
 var trackDuration = [
-	"0:29", "0:51", "0:31", 
-	"0:23", "0:29", "0:45",
-	"0:47", "0:23", "0:32", "0:25",
-	"0:34", "0:26", "0:28",
-	"0:48", "0:18",
+	"0:28", "0:50", "0:30", 
+	"0:20", "0:29", "0:43",
+	"0:44", "0:22", "0:30", "0:24",
+	"0:33", "0:27", "0:26",
+	"0:47", "0:17",
 	"0:57", "0:53"
 ];
 
